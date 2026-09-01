@@ -835,3 +835,17 @@ footer p {
 .buy-button:hover {
   background-color: #a65e45;
 }
+
+.hero-button {
+  display: inline-block;
+  background-color: #3b2a22;
+  color: #f7f1e8;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hero-button:hover {
+  background-color: #a65e45;
+}
