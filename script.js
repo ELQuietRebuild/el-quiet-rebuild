@@ -34,6 +34,10 @@ viewDetailsButtons.forEach(function (button) {
       if (response.ok) {
         contactForm.reset();
         contactMessage.textContent = "Thank you. Your message has been sent.";
+
+        setTimeout(function () {
+          contactMessage.textContent = "";
+        }, 5000);
       } else {
         contactMessage.textContent = "Something went wrong. Please try again.";
       }
