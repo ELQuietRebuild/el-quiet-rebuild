@@ -793,6 +793,24 @@ footer p {
   margin-top: 22px;
 }
 
+.current-read h3 a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.current-read > a {
+  display: inline-block;
+  margin-top: 8px;
+  color: #5a4638;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid #b65a42;
+}
+
+.current-read > a:hover {
+  color: #b65a42;
+}
+
 .buy-button {
   display: inline-block;
   background-color: #3b2a22;
@@ -909,4 +927,320 @@ footer p {
   .resource-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* =========================
+   READING ROOM — BOOK PAGE
+========================= */
+
+.reading-book-page {
+  max-width: 900px;
+  margin: 40px auto 0;
+}
+
+.book-intro {
+  padding: 70px 50px;
+  background-color: var(--espresso);
+  color: var(--ivory);
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(36, 26, 23, 0.15);
+}
+
+.book-intro .eyebrow {
+  margin: 0 0 18px;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.book-intro .book-shelf {
+  margin: 0 0 20px;
+  color: var(--terracotta);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.book-intro h1 {
+  max-width: 700px;
+  margin: 0 0 12px;
+  text-align: left;
+  color: var(--ivory);
+  font-size: 48px;
+}
+
+.book-intro .book-author {
+  margin: 0 0 30px;
+  color: var(--ivory);
+  font-size: 18px;
+}
+
+.book-intro .book-opening {
+  max-width: 650px;
+  margin: 0;
+  color: var(--ivory);
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+/* =========================
+   READING ROOM — READING IDEAS
+========================= */
+
+.reading-ideas-grid {
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.reading-idea-card {
+  padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.reading-idea-card:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.reading-idea-card h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: var(--espresso);
+}
+
+.reading-idea-card p {
+  max-width: 700px;
+  margin: 0;
+  line-height: 1.8;
+}
+
+.reading-reminder {
+  max-width: 700px;
+  margin-top: 35px;
+  padding-left: 20px;
+  border-left: 3px solid var(--terracotta);
+  line-height: 1.8;
+}
+
+/* =========================
+   READING ROOM — REFLECTION
+========================= */
+
+.reflection-section .reflection-prompts {
+  margin-top: 32px;
+}
+
+.reflection-section .reflection-prompts p {
+  max-width: 700px;
+  margin: 0;
+  padding: 22px 0 22px 24px;
+  border-left: 3px solid var(--gold);
+  border-bottom: 1px solid var(--border);
+  line-height: 1.7;
+}
+
+.reflection-section .reflection-prompts p:last-child {
+  border-bottom: none;
+}
+
+/* =========================
+   READING ROOM — REBUILD
+========================= */
+
+.rebuild-section .reflection-prompts {
+  margin-top: 32px;
+}
+
+.rebuild-section .reflection-prompts p {
+  max-width: 700px;
+  margin: 0;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  line-height: 1.7;
+}
+
+/* =========================
+   READING ROOM — 30-DAY PRACTICE
+========================= */
+
+.money-practice {
+  margin-top: 40px;
+}
+
+.practice-step {
+  position: relative;
+  padding: 28px 0 28px 70px;
+  border-bottom: 1px solid var(--border);
+}
+
+.practice-step:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.practice-step > span {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  color: var(--terracotta);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.practice-step h3 {
+  margin: 0 0 12px;
+  color: var(--espresso);
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.practice-step p {
+  max-width: 680px;
+  margin: 0;
+  line-height: 1.8;
+}
+
+.practice-step ul {
+  margin: 18px 0 0;
+  padding-left: 22px;
+  line-height: 1.8;
+}
+
+.practice-closing {
+  max-width: 750px;
+  margin-top: 35px;
+  padding: 24px 28px;
+  background-color: #f7efe4;
+  border-left: 4px solid var(--terracotta);
+  border-radius: 8px;
+}
+
+.rebuild-section .reflection-prompts p:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.rebuild-section .reflection-prompts strong {
+  color: var(--espresso);
+}
+
+/* =========================
+   READING ROOM — BACK LINK
+========================= */
+
+.back-to-reading-room {
+  display: inline-block;
+  margin: 10px 0 50px;
+  padding: 12px 0;
+  color: var(--espresso);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 2px solid var(--terracotta);
+  transition: 0.2s ease;
+}
+
+.back-to-reading-room:hover {
+  color: var(--terracotta);
+}
+
+/* =========================
+   READING ROOM — MOBILE BOOK HERO
+========================= */
+
+@media (max-width: 600px) {
+  .book-intro {
+    padding: 45px 28px;
+  }
+
+  .book-intro h1 {
+    font-size: 36px;
+    line-height: 1.15;
+  }
+
+  .book-intro .book-opening {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .book-intro .eyebrow {
+    letter-spacing: 2px;
+  }
+
+  .book-intro .book-shelf {
+    letter-spacing: 1.5px;
+  }
+}
+
+@media (max-width: 600px) {
+  .reading-book-page .reading-section {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .practice-step {
+    padding-left: 65px;
+  }
+}
+.current-read h3 a {
+  color: var(--espresso);
+  text-decoration: none;
+}
+
+.current-read h3 a:hover {
+  color: var(--terracotta);
+}
+
+.book-pick-entry {
+  margin-top: 35px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.book-pick-entry .eyebrow {
+  margin-bottom: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--terracotta);
+}
+
+.book-pick-entry h3 {
+  margin: 0 0 10px;
+  font-size: 24px;
+  color: var(--espresso);
+}
+
+.book-pick-entry a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #5a4638;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid var(--terracotta);
+}
+
+.book-pick-entry a:hover {
+  color: var(--terracotta);
+}
+
+.earlier-book-entry {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.earlier-book-entry .eyebrow {
+  margin-bottom: 14px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--terracotta);
+}
+
+.earlier-book-entry h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  color: var(--espresso);
 }
