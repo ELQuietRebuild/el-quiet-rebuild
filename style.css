@@ -1258,3 +1258,43 @@ footer p {
 .reflection-path:last-child {
   border-bottom: none;
 }
+
+/* ========================================
+   EL QUIET REBUILD — MOBILE REFINEMENT
+   ======================================== */
+
+@media (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  #home {
+    padding: 70px 24px;
+    margin-bottom: 30px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  #home h1 {
+    font-size: 38px;
+    line-height: 1.15;
+    max-width: 100%;
+    margin-bottom: 24px;
+  }
+
+  #home p {
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 100%;
+    margin-bottom: 28px;
+  }
+}
