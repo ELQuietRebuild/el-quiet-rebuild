@@ -1298,3 +1298,21 @@ footer p {
     margin-bottom: 28px;
   }
 }
+
+@media (max-width: 600px) {
+  #find-here,
+  #why,
+  #about,
+  #framework,
+  #resources,
+  #reading-room,
+  #shop,
+  #contact {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
