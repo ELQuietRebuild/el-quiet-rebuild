@@ -1367,4 +1367,185 @@ footer p {
 .quiet-checkin-button:hover {
   background: #4a2f27;
   color: #fffaf2;
+} /* ========================================
+   THOUGHTFUL DISCUSSIONS
+   ======================================== */
+
+.thoughtful-discussions-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 90px 32px 110px;
+}
+
+.thoughtful-discussions-intro {
+  max-width: 680px;
+  margin: 0 auto 80px;
+  text-align: center;
+}
+
+.thoughtful-discussions-intro .eyebrow {
+  margin-bottom: 18px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--terracotta);
+}
+
+.thoughtful-discussions-intro h1 {
+  margin: 0 0 18px;
+  font-size: 46px;
+  line-height: 1.15;
+  color: var(--espresso);
+}
+
+.thoughtful-discussions-lead {
+  margin-bottom: 26px;
+  font-size: 22px;
+  font-style: italic;
+  color: #5a4638;
+}
+
+.thoughtful-discussions-intro
+  p:not(.eyebrow):not(.thoughtful-discussions-lead) {
+  max-width: 620px;
+  margin: 0 auto 18px;
+  line-height: 1.8;
+}
+
+.current-discussion {
+  max-width: 760px;
+  margin: 0 auto 90px;
+  padding: 52px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.current-discussion .eyebrow {
+  margin-bottom: 18px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--terracotta);
+}
+
+.current-discussion h2 {
+  max-width: 680px;
+  margin: 0 0 18px;
+  font-size: 38px;
+  line-height: 1.2;
+  color: var(--espresso);
+}
+
+.current-discussion-subtitle {
+  max-width: 620px;
+  margin-bottom: 28px;
+  font-size: 18px;
+  font-style: italic;
+  line-height: 1.7;
+  color: #5a4638;
+}
+
+.current-discussion > p:not(.eyebrow):not(.current-discussion-subtitle) {
+  max-width: 650px;
+  line-height: 1.8;
+}
+
+.discussion-link {
+  display: inline-block;
+  margin-top: 18px;
+  color: var(--espresso);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid var(--terracotta);
+}
+
+.discussion-link:hover {
+  color: var(--terracotta);
+}
+
+.discussion-archive {
+  max-width: 760px;
+  margin: 0 auto 70px;
+}
+
+.discussion-archive .eyebrow {
+  margin-bottom: 16px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--terracotta);
+}
+
+.discussion-archive h2 {
+  margin: 0 0 14px;
+  font-size: 30px;
+  color: var(--espresso);
+}
+
+.discussion-archive > p {
+  max-width: 620px;
+  line-height: 1.8;
+}
+
+.archive-note {
+  margin-top: 30px;
+  font-style: italic;
+  color: #6d5a4c;
+}
+
+@media (max-width: 600px) {
+  .thoughtful-discussions-page {
+    padding: 60px 24px 80px;
+  }
+
+  .thoughtful-discussions-intro {
+    margin-bottom: 60px;
+  }
+
+  .thoughtful-discussions-intro h1 {
+    font-size: 36px;
+  }
+
+  .thoughtful-discussions-lead {
+    font-size: 20px;
+  }
+
+  .current-discussion {
+    margin-bottom: 70px;
+    padding: 40px 0;
+  }
+
+  .current-discussion h2 {
+    font-size: 30px;
+  }
+
+  .discussion-archive h2 {
+    font-size: 27px;
+  }
+}
+
+/* Thoughtful Discussions — remove global section/card styling */
+
+.thoughtful-discussions-page > section {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.thoughtful-discussions-page > section h2 {
+  padding-left: 0;
+}
+
+.thoughtful-discussions-page > section h2::before {
+  display: none;
+}
+
+/* Thoughtful Discussion article — editorial reading layout */
+
+.thoughtful-discussion-article .discussion-article-body {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
