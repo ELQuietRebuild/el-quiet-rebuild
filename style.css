@@ -751,6 +751,25 @@ footer p {
   box-shadow: 0 6px 16px rgba(36, 26, 23, 0.06);
 }
 
+.reading-feature h4 a,
+.reading-feature h4 a:visited {
+  color: var(--espresso);
+  text-decoration: none;
+}
+
+.reading-room-link,
+.reading-room-link:visited {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 10px 16px;
+  border: 1px solid var(--terracotta);
+  border-radius: 6px;
+  color: var(--espresso);
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
 .reading-feature h4 {
   margin-top: 0;
   margin-bottom: 10px;
