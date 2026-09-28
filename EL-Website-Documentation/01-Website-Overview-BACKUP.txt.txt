@@ -1,0 +1,690 @@
+EL QUIET REBUILD — WEBSITE OVERVIEW
+
+1. WHAT IS EL QUIET REBUILD?
+
+EL Quiet Rebuild is a space for women who want to learn, think, grow and become the women they are capable of becoming.
+
+EL is not only about consuming information or feeling motivated. Women are encouraged to learn with useful resources,
+think about what they have learned, rebuild the areas of their lives that need attention, apply that knowledge in real life,
+and gradually become the women they are working toward.
+
+2. THE EL QUIET REBUILD FRAMEWORK
+
+Learn → Think → Rebuild → Apply → Become
+
+LEARN
+Gain useful knowledge through books, resources, discussions and practical guidance.
+Learning gives a woman information and perspectives she may not have had before.
+
+THINK
+Do not accept information automatically. Question what you learn, consider what it means for your own life, 
+examine different perspectives, and form your own understanding.
+
+REBUILD
+Notice what is not right, working, or aligned in your life, and begin making intentional changes to build the life and the woman you want to become.
+
+APPLY
+Put what you have learned, considered and decided into practice. Turn knowledge and intention into actions, habits,
+decisions and standards that shape everyday life.
+
+BECOME
+Grow into the woman you are intentionally building through what you learn, how you think, what you rebuild, and what you consistently apply. 
+Becoming is an ongoing process, not a finished destination.
+
+3. EL PHILOSOPHY AND SIGNATURE
+
+CORE PHILOSOPHY
+Less display. More depth.
+
+MEANING
+EL Quiet Rebuild values substance over performance. Growth does not need to be constantly displayed to be real. 
+The deeper work happens in what a woman learns, how she thinks, the standards she develops, the decisions she makes, and how she lives.
+
+This philosophy should influence EL's content, products, website and creative decisions. 
+EL should not add something simply because it is trendy, impressive or visually attractive. It should have a meaningful purpose and contribute to depth.
+
+SIGNATURE
+Become before the world notices. I’ll meet you there.
+
+MEANING
+“Become before the world notices” is an invitation to do the work of becoming before there is recognition, applause or external validation. 
+A woman does not need the world to notice her progress for that progress to matter.
+
+“I’ll meet you there” represents EL’s relationship with her. EL is not speaking down to her from a finished destination. 
+It is a space that accompanies, guides and supports her as she learns, thinks, rebuilds, applies and becomes.
+
+Together, the signature reflects quiet transformation: becoming through depth, intention and 
+consistent action before the results are visible to everyone else.
+
+4. PURPOSE OF THE WEBSITE
+
+EL Quiet Rebuild should not exist only to look beautiful. Its purpose is to give women something meaningful to take away from their time here.
+
+A woman should be able to learn something, think about what it means for her own life, feel motivated to make meaningful changes, and take action. 
+The website should encourage movement from inspiration into intentional action.
+
+5. WHO THE WEBSITE IS FOR
+
+EL Quiet Rebuild is for a woman who wants to build and become more intentional about her life. She wants to develop herself across areas such as 
+her finances, confidence, personal growth, self-awareness, knowledge, standards, skills and the way she presents herself.
+
+EL recognizes that becoming is not limited to one area of life. Inner development and outward choices can become more aligned as a woman grows, 
+but appearance does not determine her worth. The deeper goal is to help her become more intentional about who she is, how she lives and who she is becoming.
+
+6. WEBSITE STRUCTURE
+
+HTML — THE STRUCTURE
+HTML (HyperText Markup Language) provides the structure and content of the website. It tells the browser what exists on a page, 
+such as headings, paragraphs, images, links, buttons, navigation and sections.
+
+A simple way to remember it:
+HTML = the structure or foundation of the webpage.
+
+CSS — THE PRESENTATION AND DESIGN
+
+CSS (Cascading Style Sheets) controls how the website looks and is presented. It controls things such as colours, fonts, spacing, sizes, borders, 
+positioning and layout.
+
+CSS is also responsible for helping the website adapt visually to different screen sizes, such as laptops and mobile phones.
+
+A simple way to remember it:
+CSS = the beautification and visual presentation of the website.
+
+JAVASCRIPT — THE BEHAVIOUR AND INTERACTION
+
+JavaScript controls much of the interactive behaviour of a website. It can make the website respond when a visitor performs an action, such as clicking a
+button, opening a menu, submitting information or interacting with a feature.
+
+A simple way to remember it:
+JavaScript = the electricity and mechanisms that help make the website respond and feel alive.
+
+INDEX.HTML — THE HOMEPAGE
+
+index.html is the main homepage file for EL Quiet Rebuild. It contains the HTML structure and content of the homepage.
+
+A simple way to remember it:
+index.html = the front door of the website.
+
+STYLE.CSS — THE WEBSITE DESIGN
+
+style.css contains the CSS rules used to control the visual presentation of EL Quiet Rebuild. It includes things such as colours, fonts, spacing, buttons, 
+borders, layouts and how pages adapt to different screen sizes.
+
+Changes made in style.css can affect multiple parts or pages of the website, so changes should be made carefully and tested before being published.
+
+A simple way to remember it:
+style.css = EL Quiet Rebuild's visual design instructions.
+
+SCRIPT.JS — WEBSITE BEHAVIOUR
+
+script.js is the JavaScript file used for interactive behaviour on EL Quiet Rebuild. It can contain instructions that tell the website how to respond when 
+certain actions happen.
+
+Not every part of the website needs JavaScript. Normal content and links can still work through HTML without JavaScript.
+
+A simple way to remember it:
+script.js = instructions for website behaviour and interaction.
+
+FOLDERS — ORGANIZING THE WEBSITE
+
+Folders help keep related website files and pages together. As EL Quiet Rebuild grows, organizing pages into folders prevents the project from becoming 
+cluttered and difficult to manage.
+
+For example, the reading-room folder contains pages and content that belong to the Reading Room.
+
+A simple way to remember it:
+Folders = keeping related parts of the website organized and easier to manage.
+
+HOW PAGES CONNECT
+
+Links can give the browser directions to another webpage file.
+
+For example:
+
+reading-room/reflection-room.html
+
+means:
+Go into the reading-room folder and open the reflection-room.html webpage.
+
+A simple way to remember it:
+A file path = directions to where a file lives.
+
+EL QUIET REBUILD PROJECT MAP
+
+HOMEPAGE
+
+File:
+index.html
+
+Purpose:
+This is the main homepage of EL Quiet Rebuild. It introduces the website and helps visitors move into different areas of EL through the navigation,
+sections and links.
+
+Location:
+Main website folder.
+
+CHECK-IN PAGE
+
+File:
+check-in.html
+
+Purpose:
+This is the dedicated page for The Quiet Rebuild Check-In. It introduces the free resource and directs visitors to the MailerLite sign-up form so they can 
+enter their email and receive the Check-In.
+
+Location:
+Main website folder.
+
+READING ROOM
+
+Folder:
+reading-room
+
+Purpose:
+The reading-room folder keeps the webpages that belong to the EL Quiet Rebuild Reading Room organized together.
+
+It includes areas for reading, reflection, book recommendations, deeper learning and thoughtful discussions.
+
+Location:
+Inside the main website folder.
+
+REFLECTION ROOM
+
+File:
+reflection-room.html
+
+Purpose:
+The Reflection Room gives women a space to examine different areas of their lives, think more deeply about where they are, and reflect on what may need 
+attention or change.
+
+Location:
+Inside the reading-room folder.
+
+MONTHLY BOOK PICKS
+
+File:
+book-picks.html
+
+Purpose:
+Monthly Book Picks helps women discover books selected to support learning, reflection and personal development within the EL Quiet Rebuild journey.
+
+Location:
+Inside the reading-room folder.
+
+QUIET READING
+
+File:
+quiet-reading.html
+
+Purpose:
+Quiet Reading provides a calm space for women to slow down, read thoughtfully and spend time with ideas without rushing through them.
+
+Location:
+Inside the reading-room folder.
+
+THOUGHTFUL DISCUSSIONS
+
+File:
+thoughtful-discussions.html
+
+Purpose:
+Thoughtful Discussions is a space for women to question ideas, examine different perspectives, develop their reasoning and form their own positions 
+instead of simply accepting information.
+
+Location:
+Inside the reading-room folder.
+
+PSYCHOLOGY OF MONEY — GUIDED READING
+
+File:
+psychology-of-money.html
+
+Purpose:
+This page provides a deeper guided reading experience around The Psychology of Money. It helps women move beyond simply reading the book by reflecting on 
+its ideas, thinking about their own relationship with money, and applying what they learn.
+
+Location:
+Inside the reading-room folder.
+
+DISCUSSION ARTICLES
+
+Folder:
+discussions
+
+Purpose:
+The discussions folder keeps the individual Thoughtful Discussions articles organized together. As more discussions are published, their individual webpage 
+files can be stored here.
+
+Location:
+Inside the reading-room folder.
+
+Example:
+reading-room/discussions/should-emotions-decide.html
+
+This path means:
+Go into reading-room → go into discussions → open should-emotions-decide.html.
+
+7. GIT & GITHUB WORKFLOW
+
+Git helps track and save versions of the EL Quiet Rebuild website project.
+
+GitHub is the online home where the Git project and its saved versions are stored.
+
+GIT STATUS
+
+Command:
+git status
+
+Purpose:
+Checks the current state of the project and shows what has changed.
+
+A simple way to remember it:
+git status = What changed?
+
+GIT ADD
+
+Command:
+git add
+
+Purpose:
+Prepares the change you want to include in the next saved version.
+
+A simple way to remember it:
+git add = Prepare the change.
+
+GIT COMMIT
+
+Command:
+git commit
+
+Purpose:
+Creates a saved version of the changes you prepared.
+
+A commit message describes what was changed in that version.
+
+A simple way to remember it:
+git commit = Save this version.
+
+GIT PUSH
+
+Command:
+git push
+
+Purpose:
+Sends the saved Git version from your computer to GitHub, updating the project stored there.
+
+A simple way to remember it:
+git push = Update GitHub.
+
+8. PUBLISHING THE WEBSITE
+
+LOCAL WEBSITE FILES
+
+The EL Quiet Rebuild website files on my computer are where I build and edit the website.
+
+When I make a change and press Ctrl + S, the change is saved on my computer. This does not automatically update the public website.
+
+A simple way to remember it:
+Local website files = where I build and edit EL.
+
+GITHUB
+
+GitHub stores the EL Quiet Rebuild project online.
+
+After I make and save changes on my computer, I use Git to prepare and save a version of those changes. When I use git push, that saved version is sent to 
+GitHub.
+
+A simple way to remember it:
+GitHub = the online home of my website project.
+
+GITHUB PAGES
+
+GitHub Pages takes the website files stored in the GitHub project and publishes them as the public EL Quiet Rebuild website.
+
+After I push a new saved version to GitHub, GitHub Pages can deploy that version so the changes appear on the live website.
+
+A simple way to remember it:
+GitHub Pages = publishes my website for people to see online.
+
+THE PUBLISHING JOURNEY
+
+1. I edit the website files on my computer.
+2. I press Ctrl + S to save my changes on my computer.
+3. I use Git to check, prepare and save the changes.
+4. I use git push to send the saved version to GitHub.
+5. GitHub Pages publishes the updated website.
+6. I check the live website to make sure the change works correctly.
+
+A simple way to remember it:
+
+Computer → Git → GitHub → GitHub Pages → Live Website
+
+9. THE QUIET REBUILD CHECK-IN SYSTEM
+
+PURPOSE
+
+The Quiet Rebuild Check-In is a free EL resource designed to help a woman notice which areas of her life may need attention. It also gives her a way to join the EL Quiet Rebuild email list and continue her journey with EL.
+
+HOW THE SYSTEM WORKS
+
+1. A visitor arrives at the EL Quiet Rebuild Check-In page.
+2. She clicks “Get the Free Check-In.”
+3. She is directed to the MailerLite sign-up form.
+4. She enters her name and email address.
+5. MailerLite adds her as a subscriber.
+6. The MailerLite automation sends the Check-In delivery email.
+7. She clicks “Open Your Quiet Rebuild Check-In” in the email.
+8. The Quiet Rebuild Check-In PDF opens.
+
+Simple journey:
+
+EL Website → Check-In Page → MailerLite Form → Email List → Delivery Email → Check-In PDF
+
+IF SOMETHING GOES WRONG
+
+Because the Check-In system has several connected parts, first identify where the journey stops before making changes.
+
+If the “Get the Free Check-In” button does not open the sign-up form:
+Check the website link to the MailerLite form.
+
+If the form opens but cannot be submitted:
+Check the MailerLite form.
+
+If the form works but the delivery email does not arrive:
+Check the MailerLite automation and delivery email.
+
+If the email arrives but the Check-In does not open:
+Check the PDF link inside the delivery email.
+
+Important:
+Do not change several parts of the system at once. First identify which step is failing, then investigate that part.
+
+10. EXTERNAL SERVICES EL DEPENDS ON
+
+GITHUB
+
+Purpose:
+GitHub stores the EL Quiet Rebuild website project online and keeps the Git version history that has been pushed from the computer.
+
+Why it matters:
+The website project is connected to GitHub Pages. New website versions are pushed to GitHub before they can be deployed to the public website.
+
+Important:
+Do not store passwords, private access tokens, API keys or other sensitive information inside the public website repository.
+
+GITHUB PAGES
+
+Purpose:
+GitHub Pages publishes the EL Quiet Rebuild website files from GitHub as the public website people can visit online.
+
+Why it matters:
+Pushing a new version to GitHub does not by itself mean the public website has already updated. GitHub Pages must successfully deploy the new version.
+
+If a change is on GitHub but not visible on the live website:
+Check the GitHub Pages deployment status before changing the website files again.
+
+MAILERLITE
+
+Purpose:
+MailerLite manages the EL Quiet Rebuild email list, sign-up form and email automation used to deliver The Quiet Rebuild Check-In.
+
+Why it matters:
+The Check-In funnel depends on MailerLite after a visitor leaves the EL website and enters the sign-up process.
+
+If someone can reach the sign-up form but does not receive the expected email:
+Check the MailerLite form, subscriber status, automation and delivery email before changing the website.
+
+Important:
+Do not place MailerLite passwords or other private account credentials in this documentation.
+
+CLOUDFLARE WEB ANALYTICS
+
+Purpose:
+Cloudflare Web Analytics helps EL Quiet Rebuild monitor website activity and performance.
+
+It can provide information such as visits, page views, traffic sources and website performance.
+
+Why it matters:
+Analytics helps EL make decisions using evidence instead of assumptions. It can show whether website traffic is growing, which pages attract attention 
+and where visitors are coming from.
+
+Important:
+Analytics numbers should be interpreted carefully. For example, a “visit” should not automatically be treated as one exact individual person.
+
+The analytics tracking code is connected to the website. If analytics unexpectedly stops collecting data, check that the tracking code is still present 
+and working before assuming there is no website traffic.
+
+PAYHIP
+
+Purpose:
+Payhip is used to sell and deliver EL Quiet Rebuild's paid digital products.
+
+Why it matters:
+The EL website can introduce and recommend a product, but the purchasing and digital product delivery process is handled through Payhip.
+
+If a product page on EL works but there is a problem with purchasing or receiving the digital product:
+Check Payhip before changing the EL website.
+
+Important:
+Product prices, files and purchase links should be checked carefully when products are updated. Do not store Payhip passwords or private payment 
+information in this documentation.
+
+11. BRAND & WEBSITE RULES
+
+CORE DESIGN PRINCIPLE
+
+Less display. More depth.
+
+EL Quiet Rebuild should prioritize substance, clarity and purpose over unnecessary display.
+
+Website elements should not be added simply because they are trendy, impressive, animated or visually attractive. Each element should have a reason 
+for being there and should support the visitor's experience or EL's purpose.
+
+A simple decision question:
+What purpose does this serve?
+
+If an element adds visual noise without adding meaning, usefulness or a better experience, it may not belong on EL.
+
+VISUAL DIRECTION
+
+EL Quiet Rebuild should feel calm, thoughtful, warm, editorial and intentional.
+
+The main visual direction uses:
+- Dark espresso
+- Cream / ivory
+- Terracotta
+- Gold and olive as supporting tones
+
+The design should give content room to breathe through thoughtful spacing and clear hierarchy.
+
+Avoid making every piece of content look like a card or placing everything inside boxes. Containers, borders and cards should be used when they help 
+organize or distinguish content.
+
+A simple rule to remember:
+A box should have a reason to be a box.
+
+The goal is not to make EL look busy or impressive. The design should support the ideas, reading experience and purpose of the website.
+
+EL SIGNATURE
+
+Become before the world notices. I’ll meet you there.
+
+This is an important EL Quiet Rebuild signature and should not be shortened, rewritten or replaced casually.
+
+“Become before the world notices” represents doing the work of becoming before recognition, applause or external validation.
+
+“I’ll meet you there” represents EL’s relationship with the woman: EL accompanies, guides and supports her rather than speaking to her from a position of 
+superiority.
+
+When the signature is used, preserve the complete meaning and wording:
+
+Become before the world notices. I’ll meet you there.
+
+12. PRODUCTS & RESOURCES
+
+THE QUIET REBUILD CHECK-IN — FREE RESOURCE
+
+Type:
+Free resource
+
+Purpose:
+The Quiet Rebuild Check-In helps a woman identify areas of her life that may need attention across money, habits, confidence, standards, skills and 
+direction.
+
+Role within EL:
+The Check-In is an entry point into the EL Quiet Rebuild journey. It gives the woman something useful before asking her to purchase a product and also 
+gives her the opportunity to join the EL email list.
+
+The Check-In should remain connected to a clear next step rather than existing as an isolated free download.
+
+MONEY MINDSET GUIDE — PAID RESOURCE
+
+Type:
+Paid digital guide
+
+Purpose:
+The Money Mindset Guide helps women go deeper into their thinking, beliefs and relationship with money.
+
+Role within EL:
+It provides a more focused next step for a woman who identifies money as an area she wants to understand and rebuild.
+
+The guide is part of EL’s paid product pathway and should be presented as a deeper resource, rather than competing with the free Check-In.
+
+QUIET REBUILD: 7 DAYS TO BEGIN AGAIN — PAID RESOURCE
+
+Type:
+Paid digital workbook
+
+Purpose:
+This workbook helps a woman move from reflection into intentional action through a structured seven-day rebuilding process.
+
+Role within EL:
+It supports a woman who is ready to begin making practical changes rather than only identifying or thinking about what needs attention.
+
+The workbook should support EL’s wider journey from learning and reflection into rebuilding and application.
+
+13. AMAZON ASSOCIATES
+
+Purpose:
+EL Quiet Rebuild may use Amazon Associates affiliate links when recommending eligible books or products.
+
+Important:
+When adding an Amazon recommendation to EL, use EL Quiet Rebuild’s correct Amazon Associate link where appropriate rather than replacing it with an ordinary
+Amazon link.
+
+Affiliate recommendations should be genuine and relevant to EL’s purpose. EL should not recommend something simply because a commission may be earned.
+
+Disclosure:
+Affiliate links should be accompanied by an appropriate affiliate disclosure. Current Amazon Associates requirements should be checked before making 
+important changes to how affiliate links or disclosures are used.
+
+Security:
+Do not store Amazon account passwords or other private account information in this documentation.
+
+14. WEBSITE ANALYTICS & GROWTH
+
+PURPOSE
+
+EL Quiet Rebuild uses website analytics to understand how the website is being discovered and used.
+
+Analytics should support decisions. The goal is not simply to watch numbers increase, but to understand what is working, what may need improvement and
+where EL should focus its attention.
+
+KEY THINGS TO WATCH
+
+Visits:
+Shows website visiting activity over time. A visit should not automatically be interpreted as one exact individual person.
+
+Page Views:
+Shows how many times pages on the website have been viewed.
+
+Top Pages:
+Helps identify which EL pages are receiving the most attention.
+
+Traffic Sources / Referrers:
+Helps show where visitors are coming from, such as search engines, social media or other websites.
+
+Growth Over Time:
+Compare results across periods to understand whether EL is gaining, losing or maintaining website activity.
+
+IMPORTANT PRINCIPLE
+
+Do not make an important decision from one number alone. Look for patterns, context and possible explanations before deciding what the data means.
+
+A simple question to remember:
+What is the data telling me, and what do I need to investigate before I act?
+
+15. MAKING A WEBSITE UPDATE
+
+BASIC UPDATE PROCESS
+
+When making a change to EL Quiet Rebuild, make the change carefully and test it before publishing it to the live website.
+
+1. Open the EL Quiet Rebuild project in VS Code.
+2. Find and open the file that contains what I want to change.
+3. Make the change.
+4. Press Ctrl + S to save the change on my computer.
+5. Test the change locally and make sure it works and looks as expected.
+
+Important:
+Saving a file does not publish the change to the live website.
+
+A simple rule to remember:
+Change → Save → Test
+
+PUBLISHING THE UPDATE
+
+After the change has been saved and tested:
+
+1. Use git status to check what has changed.
+2. Use git add to prepare the changes that should be included.
+3. Use git commit with a clear message to save a new version.
+4. Use git push to send the saved version to GitHub.
+5. Check that GitHub Pages successfully deploys the new version.
+6. Open the live EL Quiet Rebuild website and verify that the update appears and works correctly.
+
+A simple way to remember it:
+
+Change → Save → Test → Status → Add → Commit → Push → Deploy → Verify
+
+16. BASIC TROUBLESHOOTING
+
+MAIN PRINCIPLE
+
+Do not start changing several things when something goes wrong.
+
+First ask:
+Where does the problem begin?
+
+CHANGE DOES NOT APPEAR ON THE LIVE WEBSITE
+
+Check:
+1. Did I save the file with Ctrl + S?
+2. Did I test the correct change locally?
+3. Did I complete the Git process and push the new version to GitHub?
+4. Did GitHub Pages deploy successfully?
+5. Am I checking the correct live page?
+
+LINK DOES NOT WORK
+
+Check:
+1. Is the link pointing to the correct file or webpage?
+2. Is the file path correct?
+3. Does the destination file actually exist?
+
+DESIGN LOOKS WRONG
+
+Check:
+1. Did I change the correct HTML or CSS?
+2. Could a CSS change be affecting more than one element or page?
+3. Does the problem happen on both laptop and mobile?
+
+DEPLOYMENT FAILS
+
+Do not immediately change the website code.
+
+First check the GitHub Pages deployment information to understand what failed.
+
+IMPORTANT RULE
+
+Diagnose first → identify the failing part → change one thing → test again.

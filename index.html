@@ -86,15 +86,28 @@
     <header>
       <nav aria-label="Main navigation">
         <a href="#home" class="nav-brand">EL Quiet Rebuild</a>
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#reading-room">Reading Room</a>
-        <a href="#resources">Resources</a>
-        <a href="#shop">Shop</a>
-        <a href="#contact">Contact</a>
+
+        <button
+          type="button"
+          class="menu-toggle"
+          id="menu-toggle"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          ☰
+        </button>
+
+        <div class="nav-links" id="nav-links">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#reading-room">Reading Room</a>
+          <a href="#resources">Resources</a>
+          <a href="#shop">Shop</a>
+          <a href="#contact">Contact</a>
+        </div>
       </nav>
     </header>
-
     <main>
       <section id="home">
         <h1>Become Before the World Notices.</h1>
@@ -105,75 +118,121 @@
           beyond traditional education.
         </p>
 
-        <p class="hero-signature">Less display. More depth.</p>
-
-        <a href="#find-here" class="hero-button">Explore the Rebuild</a>
+        <p class="hero-philosophy">Less display. More depth.</p>
+        <p class="hero-signature">
+          Become before the world notices. I'll meet you there.
+        </p>
       </section>
 
       <section id="find-here">
-        <h2>What You'll Find Here</h2>
+        <h2>Choose a Learning Path</h2>
 
         <p>
-          Practical ideas, resources, books and tools for women who want to keep
-          learning, build stronger discipline, improve their relationship with
-          money, develop useful skills, strengthen their confidence and
-          standards, and become more intentional about the life they are
-          building.
+          You do not have to work on everything at once. Choose an area that
+          reflects what you want to understand, strengthen, practise or rebuild
+          right now.
         </p>
+
         <div class="home-pillars">
-          <div class="home-pillar">
+          <a
+            href="learning-paths/communication-expression.html"
+            class="home-pillar"
+          >
             <span>01</span>
-            <h3>Learn</h3>
+            <h3>Communication &amp; Expression</h3>
             <p>
-              Build knowledge through self-education, thoughtful resources, and
-              practical learning.
+              Organise your thoughts, express yourself more clearly, and
+              practise communicating with greater intention.
             </p>
-          </div>
+          </a>
 
-          <div class="home-pillar">
+          <a
+            href="learning-paths/critical-thinking-knowledge.html"
+            class="home-pillar"
+          >
             <span>02</span>
-            <h3>Discipline</h3>
+            <h3>Critical Thinking &amp; Knowledge</h3>
             <p>
-              Develop the habits, consistency, and self-responsibility required
-              to keep moving forward.
+              Question ideas, examine evidence and assumptions, and develop more
+              thoughtful conclusions of your own.
             </p>
-          </div>
+          </a>
 
-          <div class="home-pillar">
+          <a
+            href="learning-paths/confidence-self-trust.html"
+            class="home-pillar"
+          >
             <span>03</span>
-            <h3>Money</h3>
+            <h3>Confidence &amp; Self-Trust</h3>
             <p>
-              Understand money, strengthen your financial habits, and learn to
-              make more intentional decisions.
+              Strengthen trust in your judgment and build confidence through
+              action, experience and evidence.
             </p>
-          </div>
+          </a>
 
-          <div class="home-pillar">
+          <a
+            href="learning-paths/self-respect-standards-boundaries.html"
+            class="home-pillar"
+          >
             <span>04</span>
-            <h3>Skills</h3>
+            <h3>Self-Respect, Standards &amp; Boundaries</h3>
             <p>
-              Develop useful, practical skills that increase your confidence,
-              capability, and opportunities.
+              Examine what matters to you, what you accept, and the standards
+              you want to practise in your own life.
             </p>
-          </div>
+          </a>
 
-          <div class="home-pillar">
+          <a href="learning-paths/identity-rebuilding.html" class="home-pillar">
             <span>05</span>
-            <h3>Standards</h3>
+            <h3>Identity &amp; Rebuilding</h3>
             <p>
-              Examine what you accept from yourself and your life, and
-              consciously raise your standards.
+              Recognise what no longer fits and begin rebuilding your beliefs,
+              habits, standards and direction intentionally.
             </p>
-          </div>
+          </a>
 
-          <div class="home-pillar">
+          <a
+            href="learning-paths/habits-discipline-action.html"
+            class="home-pillar"
+          >
             <span>06</span>
-            <h3>Read & Reflect</h3>
+            <h3>Habits, Discipline &amp; Action</h3>
             <p>
-              Explore books, ideas, and thoughtful conversations through the EL
-              Quiet Reading Room.
+              Turn good intentions into repeated action and learn how to return
+              when consistency is interrupted.
             </p>
-          </div>
+          </a>
+
+          <a
+            href="learning-paths/money-financial-thinking.html"
+            class="home-pillar"
+          >
+            <span>07</span>
+            <h3>Money &amp; Financial Thinking</h3>
+            <p>
+              Think more carefully about money, trade-offs, affordability and
+              the decisions shaping your financial life.
+            </p>
+          </a>
+
+          <a href="learning-paths/learning-skills.html" class="home-pillar">
+            <span>08</span>
+            <h3>Learning &amp; Skills</h3>
+            <p>
+              Move beyond collecting information and turn learning into
+              practice, capability and evidence of improvement.
+            </p>
+          </a>
+
+          <a href="learning-paths/direction-purpose.html" class="home-pillar">
+            <span>09</span>
+            <h3>Direction &amp; Purpose</h3>
+            <p>
+              Explore where you want to go without waiting for perfect
+              certainty, and choose a direction you can begin testing through
+              action.
+            </p>
+          </a>
         </div>
       </section>
 
@@ -326,15 +385,15 @@
 
           <div class="resource-card">
             <span>03</span>
-            <h3>Growth &amp; Skills</h3>
+            <h3>Learning &amp; Practice</h3>
+
             <p>
-              Tools for building discipline, confidence, communication,
-              self-education, useful skills, stronger standards, and greater
-              personal responsibility.
+              Practical learning paths and exercises for strengthening
+              communication, critical thinking, confidence, discipline, skills,
+              standards, and direction.
             </p>
-            <a href="#find-here" class="resource-link"
-              >Explore Growth &amp; Skills →</a
-            >
+
+            <a href="#find-here">Explore the Learning Paths →</a>
           </div>
         </div>
 
@@ -592,10 +651,62 @@
       </section>
     </main>
 
-    <footer>
-      <p>© 2026 EL Quiet Rebuild. All rights reserved.</p>
-      <p>Less display. More depth.</p>
-      <p>Become before the world notices. I'll meet you there.</p>
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <h3>EL Quiet Rebuild</h3>
+
+          <p>
+            A quiet space for learning, thinking, rebuilding and becoming with
+            intention.
+          </p>
+
+          <p class="footer-philosophy">Less display. More depth.</p>
+
+          <p class="footer-signature">
+            Become before the world notices. I'll meet you there.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <h3>Explore</h3>
+
+          <a href="#about">About</a>
+          <a href="#find-here">Learning Paths</a>
+          <a href="#reading-room">Reading Room</a>
+          <a href="#resources">Resources</a>
+          <a href="#shop">Shop</a>
+        </div>
+
+          <div class="footer-links">
+            <h3>Connect</h3>
+
+            <a href="#contact">Contact</a>
+
+            <a
+              href="https://www.instagram.com/e.l.quietrebuild.daily?stkn=MWJ6ZjRjbXllcnE0bQ=="
+              target="_blank"
+              >Instagram</a
+            >
+            <a
+              href="https://whatsapp.com/channel/0029VbDTANR1iUxfPvCiLo3r"
+              target="_blank"
+              >WhatsApp Channel</a
+            >
+
+            <a href="https://t.me/elquietrebuild" target="_blank">Telegram</a>
+            <a
+              href="https://www.tiktok.com/@quietbuild8?_r=1&_t=ZN-9A5ipaccOso"
+              target="_blank"
+              >TikTok</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 EL Quiet Rebuild. All rights reserved.</p>
+      </div>
     </footer>
 
     <script src="script.js"></script>

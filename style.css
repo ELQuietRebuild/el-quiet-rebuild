@@ -321,6 +321,16 @@ section p {
     box-shadow 0.3s ease;
 }
 
+.resource-card a,
+.resource-card a:visited {
+  color: var(--terracotta);
+  text-decoration: none;
+}
+
+.resource-card a:hover {
+  text-decoration: underline;
+}
+
 .resource-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 18px 35px rgba(36, 26, 23, 0.15);
@@ -711,6 +721,26 @@ footer p {
   padding: 30px;
 }
 
+.home-pillar,
+.home-pillar:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.home-pillar:hover {
+  text-decoration: none;
+}
+
+.home-pillar h3 {
+  display: inline-block;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 3px;
+}
+
+.home-pillar:hover h3 {
+  border-bottom-width: 2px;
+}
+
 .home-pillar span {
   color: #b55d45;
   font-size: 14px;
@@ -928,23 +958,6 @@ footer p {
 
 .resource-link:hover {
   text-decoration: underline;
-}
-
-@media (max-width: 600px) {
-  nav {
-    flex-wrap: wrap;
-    gap: 4px 8px;
-    margin-bottom: 24px;
-    padding: 10px 8px;
-    background: transparent;
-    border-radius: 0;
-  }
-
-  nav a {
-    padding: 6px 8px;
-    font-size: 13px;
-    line-height: 1.3;
-  }
 }
 
 @media (max-width: 600px) {
@@ -1641,4 +1654,247 @@ footer p {
   font-style: italic;
   letter-spacing: 0.04em;
   color: var(--espresso);
+}
+
+/* Learning Path Pages */
+
+.learning-path-page main {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.learning-path-page section {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+}
+.learning-path-page section {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: transparent;
+  padding: 24px 0;
+  margin: 0;
+}
+.learning-path-page .practice-section {
+  background: rgba(167, 74, 47, 0.06);
+  border-left: 4px solid #a74a2f;
+  padding: 28px 32px;
+  margin-top: 24px;
+}
+@media (max-width: 600px) {
+  .learning-path-page h1 {
+    font-size: 2.2rem;
+  }
+}
+.learning-path-page h2 {
+  font-size: 1.7rem;
+}
+
+.learning-path-page main {
+  padding: 0 16px;
+}
+
+/* =========================
+   COMMUNICATION PRACTICE BUTTON
+========================= */
+
+#new-practice-question {
+  padding: 11px 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: var(--espresso);
+  color: var(--ivory);
+  font-weight: 600;
+  font-size: 15px;
+  transition:
+    background-color 0.3s,
+    transform 0.3s;
+}
+
+/* =========================
+   LEARNING PATH CTA BUTTONS
+========================= */
+
+.cta-button {
+  display: inline-block;
+  padding: 11px 20px;
+  margin: 10px 0 22px;
+  border-radius: 30px;
+  background-color: var(--espresso);
+  color: var(--ivory);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition:
+    background-color 0.3s,
+    transform 0.3s;
+}
+
+.cta-button:visited {
+  color: var(--ivory);
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+}
+
+.cta-button:active {
+  transform: translateY(0);
+} /* =========================
+   MOBILE HAMBURGER MENU
+========================= */
+
+/* Desktop */
+.menu-toggle {
+  display: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  nav {
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: var(--ivory);
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 20px 24px 24px;
+    background-color: var(--espresso);
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(36, 26, 23, 0.18);
+    z-index: 1000;
+  }
+
+  .nav-links a {
+    width: 100%;
+    padding: 12px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+/* =========================
+   EL QUIET REBUILD FOOTER
+========================= */
+
+.site-footer {
+  margin-top: 70px;
+  padding: 60px 60px 25px;
+  background-color: var(--espresso);
+  color: var(--ivory);
+  border-top: 2px solid var(--gold);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 70px;
+  text-align: left;
+}
+
+.footer-brand {
+  max-width: 500px;
+}
+
+.footer-brand h3,
+.footer-links h3 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  color: var(--ivory);
+}
+
+.footer-brand > p {
+  line-height: 1.7;
+}
+
+.footer-philosophy {
+  margin-top: 28px;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.footer-signature {
+  margin-top: 0;
+  font-style: italic;
+}
+
+.footer-links a {
+  display: block;
+  width: fit-content;
+  margin-bottom: 12px;
+  color: var(--ivory);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 45px auto 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Footer — mobile */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 45px 28px 22px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .footer-bottom {
+    margin-top: 35px;
+  }
+}
+
+.hero-philosophy {
+  margin: 0 auto 8px !important;
+}
+
+.hero-signature {
+  margin: 0 auto 30px !important;
+  font-style: italic;
+  opacity: 0.9;
 }

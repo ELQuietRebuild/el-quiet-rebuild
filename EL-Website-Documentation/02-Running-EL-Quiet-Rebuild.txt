@@ -1,0 +1,4552 @@
+02. RUNNING EL QUIET REBUILD
+
+OWNER & OPERATOR LEARNING MANUAL
+
+
+PURPOSE OF THIS DOCUMENT
+
+This document teaches me how to run, update, maintain and troubleshoot the EL Quiet Rebuild website and its connected systems.
+
+The goal is not simply to memorize instructions or copy commands.
+
+The goal is to understand what I am doing, why I am doing it, how the different systems connect, and how to think through problems when something does not 
+work.
+
+Over time, I should become less dependent on step-by-step guidance and more capable of operating EL Quiet Rebuild independently.
+
+1. HOW EL QUIET REBUILD GETS FROM MY COMPUTER TO THE INTERNET
+
+Before learning individual tools and commands, I need to understand the journey of a website change.
+
+The basic journey is:
+
+My Computer → Git → GitHub → GitHub Pages → Live Website
+
+1A. MY COMPUTER — WHERE THE WORK BEGINS
+
+The website files I edit are stored locally on my computer inside the EL Quiet Rebuild website project folder.
+
+When I change something in VS Code and press Ctrl + S, I am saving that change to the files on my computer.
+
+At this point, I have changed my local version of the website.
+
+The change is NOT automatically on GitHub and it is NOT automatically on the live website.
+
+This distinction is important:
+
+Ctrl + S = save the file on my computer.
+
+It does not mean = publish the website.
+
+1B. GIT — TRACKING WHAT CHANGED
+
+Git is a version-tracking system.
+
+It watches the files in my website project and helps me keep a history of the versions I choose to save.
+
+When I edit a website file and press Ctrl + S, the file on my computer changes.
+
+Git can detect that the file is now different from the version it previously knew.
+
+Git does not automatically publish that change to the internet.
+
+Instead, Git helps me inspect the change, choose what I want to include, and create a saved version of the project.
+
+GIT STATUS — LOOK AT THE CURRENT STATE
+
+Command:
+
+git status
+
+Purpose:
+
+git status shows me the current state of my Git project.
+
+It can tell me which files have changed, which changes are prepared for the next commit, and whether there are changes I have not prepared yet.
+
+A simple way to remember it:
+
+STATUS = LOOK
+
+Question it answers:
+
+"What is going on with my project right now?"
+
+IMPORTANT: WHAT DOES "A FILE CHANGED" MEAN?
+
+When Git says that a file has changed, this does NOT mean that the public website has changed.
+
+It means that the file currently stored on my computer is different from the version Git previously recorded.
+
+For example:
+
+1. I open check-in.html in VS Code.
+
+2. I change some text.
+
+3. I press Ctrl + S.
+
+At this point, check-in.html has changed on my computer.
+
+The change is local.
+
+It has not been sent to GitHub and it has not been published to the live website.
+
+Git can compare the file on my computer with the version it previously recorded and recognize that something is different.
+
+This is why Git can tell me that a file has changed even though I have not used git push.
+
+
+THE FOUR DIFFERENT STATES I MUST NOT CONFUSE
+
+1. LOCAL CHANGE
+
+I edit a file and press Ctrl + S.
+
+Result:
+The file on my computer has changed.
+
+The change is not automatically on GitHub or the live website.
+
+
+2. GIT COMMIT
+
+After inspecting and preparing the changes I want, I create a commit.
+
+Result:
+Git records those selected changes as a new version in the Git history on my computer.
+
+
+3. GITHUB UPDATE
+
+I use git push.
+
+Result:
+The commits I created on my computer are sent to the EL Quiet Rebuild repository on GitHub.
+
+git push does not create the original website change.
+
+The change began when I edited the file.
+
+Push sends my already-created Git commit to GitHub.
+
+
+4. LIVE WEBSITE UPDATE
+
+GitHub Pages deploys the website version stored on GitHub.
+
+Result:
+After a successful deployment, visitors can see the new version on the public EL Quiet Rebuild website.
+
+
+THE FULL JOURNEY
+
+Edit a file in VS Code
+↓
+Ctrl + S
+↓
+The local file on my computer changes
+↓
+Git can detect the difference
+↓
+git status lets me inspect the state of the project
+↓
+git add prepares the changes I choose
+↓
+git commit records those prepared changes as a version
+↓
+git push sends my new commit(s) to GitHub
+↓
+GitHub Pages deploys the website
+↓
+I check the live website to verify the change
+
+
+THE KEY DISTINCTION
+
+Ctrl + S = save my edited file on my computer.
+
+Git = track and record versions of my project.
+
+GitHub = store my pushed Git project and version history online.
+
+GitHub Pages = publish the website from GitHub.
+
+Live website = the version visitors can actually see.
+
+These are connected parts of one system, but they are not the same thing.
+
+GIT STATUS — CHECK BEFORE I ACT
+
+Command:
+
+git status
+
+WHAT IT DOES
+
+git status lets me inspect the current state of my Git project.
+
+It does not change, save, publish or upload anything.
+
+It only gives me information.
+
+For example, after editing website files and pressing Ctrl + S, I can use git status to see which files Git recognizes as changed.
+
+
+WHY I SHOULD USE IT
+
+Before preparing or committing website changes, I should understand what Git sees.
+
+This helps me avoid blindly including a file that I did not intend to change.
+
+For example:
+
+I intentionally edit:
+index.html
+style.css
+
+But git status also shows:
+check-in.html
+
+I should not automatically assume that check-in.html belongs in my update.
+
+I should ask:
+
+"Why did this file change?"
+
+I can investigate before preparing it for the next commit.
+
+
+WHAT GIT STATUS DOES NOT DO
+
+git status does NOT:
+
+- publish my website
+- send anything to GitHub
+- create a commit
+- prepare files for a commit
+- change my website files
+
+It is an inspection command.
+
+
+A SIMPLE WAY TO REMEMBER IT
+
+STATUS = LOOK
+
+git status answers:
+
+"What is going on with my project right now?"
+
+
+OWNER HABIT
+
+Do not make the next Git decision blindly.
+
+First look at the state of the project.
+
+Then decide what should happen next.
+
+GIT ADD — CHOOSE WHAT GOES INTO THE NEXT VERSION
+
+Command example:
+
+git add index.html
+
+WHAT IT DOES
+
+git add tells Git which changed file or files I want to prepare for my next commit.
+
+This preparation is called staging.
+
+A file that has been staged is not yet a new committed version and has not been sent to GitHub.
+
+I am simply telling Git:
+
+"I want this change included in the version I am preparing."
+
+
+WHY GIT ADD EXISTS
+
+I may change several files while working, but I may not want every change included in the same saved version.
+
+git add gives me a choice.
+
+For example, Git may detect changes in:
+
+index.html
+style.css
+check-in.html
+
+If my intended update only involves index.html and style.css, I can prepare only those files:
+
+git add index.html style.css
+
+This allows me to leave check-in.html out until I understand why it changed.
+
+
+WHAT "STAGING" MEANS
+
+Staging is the preparation area between:
+
+"I changed something"
+
+and
+
+"I am ready to record this as a Git version."
+
+The file already exists on my computer.
+
+git add does not create the website change.
+
+It selects the change I want Git to include when I make my next commit.
+
+
+WHAT GIT ADD DOES NOT DO
+
+git add does NOT:
+
+- publish the website
+- send the change to GitHub
+- create the final Git commit
+- deploy the live website
+
+It prepares selected changes for the next commit.
+
+
+A SIMPLE WAY TO REMEMBER IT
+
+STATUS = LOOK
+
+ADD = PREPARE / CHOOSE
+
+git status asks:
+
+"What changed?"
+
+git add answers:
+
+"These are the changes I want to prepare for my next version."
+
+
+OWNER HABIT
+
+Do not automatically add every changed file without understanding why it changed.
+
+First inspect.
+
+Then choose.
+
+Then prepare.
+
+GIT COMMIT — RECORD A VERSION
+
+Command example:
+
+git commit -m "Improve Reading Room links and buttons"
+
+WHAT IT DOES
+
+git commit takes the changes I have staged with git add and records them as a version in the Git history on my computer.
+
+A commit is like a saved checkpoint in the development of EL Quiet Rebuild.
+
+It gives me a record of what the project looked like at that point and what change I intended to make.
+
+
+WHY COMMITS MATTER
+
+A website develops over time.
+
+I may change navigation, fix a design problem, add a new page, improve a button or update content.
+
+Instead of having one project that keeps changing with no clear history, Git commits create a sequence of recorded versions.
+
+This helps me understand how the website developed and makes it easier to identify when particular changes were made.
+
+
+THE COMMIT MESSAGE
+
+The -m allows me to write a short message describing the purpose of the commit.
+
+Example:
+
+git commit -m "Add Quiet Rebuild Check-In landing page"
+
+The message should help me understand what that version was about when I look at the Git history later.
+
+A useful commit message describes the change clearly.
+
+Avoid vague messages such as:
+
+"stuff"
+"changes"
+"update"
+
+A clearer message might be:
+
+"Fix Check-In button spacing"
+
+or:
+
+"Add Cloudflare website analytics"
+
+
+IMPORTANT: COMMIT IS NOT PUSH
+
+After I create a commit, Git has recorded the version locally on my computer.
+
+That does not automatically mean GitHub has received it.
+
+That does not automatically mean the public website has changed.
+
+The next step, when I am ready to send my local commits to GitHub, is git push.
+
+
+WHAT GIT COMMIT DOES NOT DO
+
+git commit does NOT:
+
+- choose unstaged files automatically
+- send the commit to GitHub
+- deploy GitHub Pages
+- guarantee that the live website has updated
+
+It records the changes I deliberately prepared with git add.
+
+
+A SIMPLE WAY TO REMEMBER IT
+
+STATUS = LOOK
+
+ADD = PREPARE / CHOOSE
+
+COMMIT = RECORD / SAVE A VERSION
+
+
+THE PROCESS SO FAR
+
+Edit + Ctrl + S
+↓
+My file changes locally
+↓
+git status
+↓
+I inspect what changed
+↓
+git add
+↓
+I prepare the changes I want
+↓
+git commit
+↓
+Git records those prepared changes as a version on my computer
+
+
+OWNER HABIT
+
+A commit should represent an intentional change.
+
+Before committing, I should understand what I am recording and give the version a message that future me can understand.
+
+GIT PUSH — SEND MY COMMITS TO GITHUB
+
+Command:
+
+git push
+
+WHAT IT DOES
+
+git push sends the Git commits I have already created on my computer to the EL Quiet Rebuild repository on GitHub.
+
+This is the point where my recorded Git version moves from my local computer to GitHub.
+
+
+WHAT GIT PUSH IS ACTUALLY SENDING
+
+git push is not simply sending whatever I currently see in VS Code.
+
+It sends commits.
+
+This distinction is important.
+
+If I edit a file and press Ctrl + S but do not add and commit that change, git push does not turn that unfinished local change into a commit for me.
+
+The normal process is:
+
+Edit
+↓
+Save locally
+↓
+Inspect
+↓
+Stage
+↓
+Commit
+↓
+Push
+
+
+WHY GITHUB NEEDS THE PUSH
+
+My Git project exists locally on my computer.
+
+GitHub contains an online copy of the repository.
+
+After I create a new commit locally, my computer may know about a version that GitHub does not have yet.
+
+git push sends the new commit to GitHub so the online repository can receive that version.
+
+
+IMPORTANT: PUSH IS NOT THE SAME AS DEPLOYMENT
+
+A successful git push means GitHub has received my commit.
+
+It does not, by itself, mean I should immediately assume the public website has finished updating.
+
+For EL Quiet Rebuild, GitHub Pages uses the repository to publish the website.
+
+So after pushing, I should allow GitHub Pages to deploy the new version and then verify the live website.
+
+
+WHAT GIT PUSH DOES NOT DO
+
+git push does NOT:
+
+- create the original change in my website file
+- save an unsaved VS Code file
+- choose which changes belong in a commit
+- create the commit for me
+- guarantee that GitHub Pages has successfully deployed the website
+
+Those are different stages of the process.
+
+
+A SIMPLE WAY TO REMEMBER IT
+
+STATUS = LOOK
+
+ADD = PREPARE / CHOOSE
+
+COMMIT = RECORD A VERSION
+
+PUSH = SEND THE COMMIT TO GITHUB
+
+
+THE COMPLETE BASIC GIT FLOW
+
+I edit a website file
+↓
+Ctrl + S saves the file locally
+↓
+git status shows me the state of the project
+↓
+git add prepares the changes I choose
+↓
+git commit records those staged changes as a Git version
+↓
+git push sends my new commit(s) to GitHub
+↓
+GitHub Pages deploys the website
+↓
+I verify the live website
+
+
+OWNER HABIT
+
+Do not think:
+
+"I pushed, so everything must be correct."
+
+Think:
+
+"I pushed my commit to GitHub. Now I need to confirm that deployment succeeds and that the live website looks and works as intended."
+
+1C. GITHUB — THE ONLINE HOME OF MY GIT PROJECT
+
+WHAT GITHUB IS
+
+GitHub is the online home of the EL Quiet Rebuild Git repository.
+
+My website files exist on my computer, but after I commit and push my work, GitHub can also store the pushed version of the project online.
+
+For EL Quiet Rebuild, the GitHub repository is:
+
+ELQuietRebuild/el-quiet-rebuild
+
+
+GIT AND GITHUB ARE NOT THE SAME THING
+
+Git is the version-tracking system.
+
+GitHub is an online platform that stores Git repositories.
+
+I can use Git on my computer without GitHub.
+
+For EL Quiet Rebuild, however, I use them together:
+
+Git helps me track and record versions locally.
+
+GitHub receives the commits I push and stores the project online.
+
+
+WHAT HAPPENS AFTER GIT PUSH
+
+When I run:
+
+git push
+
+Git sends my new local commit or commits to the connected GitHub repository.
+
+If the push succeeds, GitHub now has the pushed version.
+
+This gives me an important checkpoint:
+
+Computer
+↓
+Git commit
+↓
+git push
+↓
+GitHub repository
+
+At this stage, I should distinguish between two questions:
+
+1. Did GitHub receive my new version?
+
+2. Has the public website finished deploying that version?
+
+These are not exactly the same question.
+
+GitHub Pages handles the publishing stage.
+
+
+WHY GITHUB MATTERS TO EL
+
+GitHub gives EL Quiet Rebuild an online repository for the website project and its pushed Git history.
+
+It also connects the project to GitHub Pages, which is how the website is published publicly.
+
+This means GitHub sits between my local development work and the public website.
+
+
+IMPORTANT SECURITY RULE
+
+A GitHub repository can contain website code and project files.
+
+I should never place private information inside public website files or a public repository.
+
+Examples include:
+
+- passwords
+- private access tokens
+- API keys
+- private payment information
+- other sensitive account credentials
+
+If something is meant to remain secret, I should not assume that putting it inside website code will keep it private.
+
+
+A SIMPLE WAY TO REMEMBER IT
+
+Git = tracks and records versions.
+
+GitHub = stores my pushed Git project online.
+
+GitHub Pages = publishes the website.
+
+They work together, but they have different jobs.
+
+1D. GITHUB PAGES — HOW THE WEBSITE BECOMES PUBLIC
+
+WHAT GITHUB PAGES IS
+
+GitHub Pages is the service that publishes the EL Quiet Rebuild website from the website files stored in the GitHub repository.
+
+GitHub stores the project.
+
+GitHub Pages takes the website files from that project and makes them available as a public website on the internet.
+
+The public EL Quiet Rebuild website is:
+
+https://elquietrebuild.github.io/el-quiet-rebuild/
+
+
+WHAT HAPPENS AFTER I PUSH
+
+After I use git push successfully, my new commit reaches GitHub.
+
+GitHub Pages then needs to deploy the website version from the repository.
+
+Deployment is the process of making that version available on the public website.
+
+This is why these are two separate checkpoints:
+
+Checkpoint 1:
+Did my commit reach GitHub?
+
+Checkpoint 2:
+Did GitHub Pages successfully deploy the website?
+
+
+WHY THIS DISTINCTION MATTERS
+
+Suppose I change something in VS Code, commit it and push it successfully.
+
+I then open the live website and still see the old version.
+
+I should not immediately start changing my HTML or CSS again.
+
+The problem may not be my website code.
+
+The GitHub Pages deployment may still be running, may have failed, or the browser may still be showing an older cached version.
+
+Understanding the stages helps me investigate the correct part of the system instead of randomly changing things.
+
+
+WHAT DEPLOYMENT MEANS
+
+Deployment means taking a version of the website and making it available for people to visit online.
+
+For EL Quiet Rebuild:
+
+My website files are edited locally.
+↓
+Git records the version.
+↓
+GitHub receives the pushed version.
+↓
+GitHub Pages deploys it.
+↓
+The public website can show that version.
+
+
+VERIFYING THE LIVE WEBSITE
+
+A successful deployment is not the final check.
+
+I should open the public EL Quiet Rebuild website and inspect the change myself.
+
+I should check:
+
+- Is the new content visible?
+- Does the page look correct?
+- Do the links and buttons still work?
+- Does the change work on the page where I expected it?
+- If the change affects mobile layout, does it still work properly on a smaller screen?
+
+This is called verification.
+
+Deployment tells me the website was published.
+
+Verification tells me whether the result actually works as intended.
+
+
+IF THE CHANGE DOES NOT APPEAR
+
+I should think through the journey instead of immediately editing the website again.
+
+Ask:
+
+1. Did I press Ctrl + S?
+
+2. Did git status recognize my change?
+
+3. Did I stage the correct file with git add?
+
+4. Did I create the commit successfully?
+
+5. Did git push succeed?
+
+6. Is the new commit visible on GitHub?
+
+7. Did GitHub Pages deploy successfully?
+
+8. Am I checking the correct live page?
+
+9. Could my browser be showing a cached older version?
+
+This helps me locate where the process stopped.
+
+
+THE COMPLETE PUBLISHING JOURNEY
+
+VS Code
+I edit the website.
+↓
+Ctrl + S
+I save the changed file on my computer.
+↓
+git status
+I inspect what Git sees.
+↓
+git add
+I choose and prepare the changes I want.
+↓
+git commit
+Git records those prepared changes as a version.
+↓
+git push
+I send my new commit(s) to GitHub.
+↓
+GitHub
+The online repository receives the pushed version.
+↓
+GitHub Pages
+The website version is deployed.
+↓
+Live Website
+I inspect what visitors can actually see.
+
+
+THE OWNER PRINCIPLE
+
+Do not treat the website as one mysterious system.
+
+It is a chain of connected stages.
+
+When something goes wrong, ask:
+
+"At which stage did the process stop working?"
+
+Then investigate that stage before changing something else.
+
+2. HOW TO FIGURE OUT WHAT I NEED TO CHANGE
+
+THE FIRST QUESTION: WHAT KIND OF CHANGE OR PROBLEM IS THIS?
+
+Before opening files and changing code, I should first understand what I am trying to change or fix.
+
+I should not begin by randomly editing HTML or CSS.
+
+First ask:
+
+"What exactly do I want to change?"
+
+Then ask:
+
+"What part of the website is responsible for it?"
+
+
+COMMON TYPES OF WEBSITE CHANGES
+
+1. CONTENT
+
+Examples:
+- Change a sentence
+- Correct a heading
+- Add a paragraph
+- Change button wording
+
+This usually means I need to find the relevant HTML page because HTML contains the page content.
+
+
+2. APPEARANCE OR DESIGN
+
+Examples:
+- Change spacing
+- Change text size
+- Adjust a border
+- Change how a button looks
+- Fix a mobile layout problem
+
+This often means CSS is involved because CSS controls presentation and layout.
+
+
+3. STRUCTURE
+
+Examples:
+- Add a new section
+- Move content into a different part of the page
+- Add a new heading, paragraph, link or button
+
+This usually involves HTML because the structure of the webpage is changing.
+
+CSS may also be needed if the new structure needs styling.
+
+
+4. LINK OR DESTINATION
+
+Example:
+
+A button looks correct, but clicking it opens the wrong page.
+
+This is not necessarily a design problem.
+
+The problem may be the destination written in the HTML link.
+
+I should inspect the link or file path before changing CSS.
+
+
+5. BEHAVIOUR OR INTERACTION
+
+Examples:
+- An interactive feature does not respond
+- A menu should open but does not
+- Something that depends on JavaScript stops working
+
+This may involve JavaScript.
+
+I should first identify what behaviour was expected and what actually happened.
+
+
+6. EXTERNAL SYSTEM
+
+Sometimes the website itself is working correctly, but the problem begins after the visitor leaves the website.
+
+Examples:
+
+The Check-In button opens MailerLite correctly, but the delivery email never arrives.
+
+The EL product link reaches Payhip correctly, but there is a problem during purchasing or product delivery.
+
+In these situations, changing the website code may not solve the problem.
+
+I should identify which system is actually failing before I edit anything.
+
+
+ONE PROBLEM CAN INVOLVE MORE THAN ONE PART
+
+These categories are clues, not absolute rules.
+
+For example, adding a new button may require:
+
+HTML for the button or link itself
+
+and
+
+CSS for how the button looks.
+
+The purpose of diagnosing first is not to guess perfectly.
+
+It is to narrow down where I should investigate.
+
+
+THE OWNER PRINCIPLE
+
+Do not begin with:
+
+"What code should I change?"
+
+Begin with:
+
+"What exactly is happening, what should be happening instead, and which part of the system is responsible for that?"
+
+Understand the problem first.
+
+Then investigate the most likely place.
+
+FINDING THE RIGHT PLACE IN VS CODE
+
+Once I have identified the type of change, I need to locate the relevant code.
+
+I should not scroll through a large file line by line if I already know something specific that I can search for.
+
+
+SEARCHING INSIDE THE CURRENT FILE
+
+If I know some of the text that appears on the webpage, I can use:
+
+Ctrl + F
+
+This searches inside the file I currently have open.
+
+Example:
+
+Suppose I want to change the homepage sentence:
+
+"Less display. More depth."
+
+I can open index.html, press Ctrl + F, and search for part of that sentence.
+
+VS Code can take me directly to where that text appears in the file.
+
+This is usually faster and safer than scrolling through the entire file.
+
+
+SEARCHING ACROSS THE PROJECT
+
+Sometimes I can see something on the website but I do not know which file contains it.
+
+In that situation, I can use VS Code's project-wide search.
+
+Shortcut:
+
+Ctrl + Shift + F
+
+This searches across the files in the website project.
+
+Example:
+
+I see the words:
+
+"Get the Free Check-In"
+
+but I cannot remember which file contains them.
+
+Instead of guessing, I can search the whole project for that exact wording.
+
+The search results can show me which file or files contain it.
+
+
+WHY SEARCH IS IMPORTANT
+
+As EL Quiet Rebuild grows, the website will contain more pages and more code.
+
+I should not depend on remembering the exact location of everything.
+
+A professional way of working is often:
+
+Know what I am looking for
+↓
+Search for evidence
+↓
+Locate the relevant file and code
+↓
+Understand what I found
+↓
+Then decide what to edit
+
+
+DO NOT EDIT THE FIRST SEARCH RESULT BLINDLY
+
+Finding matching text does not automatically mean I have found the correct thing to change.
+
+The same words, class name or element may appear in more than one place.
+
+Before editing, I should look at the surrounding code and ask:
+
+Is this the correct page?
+
+Is this the correct section?
+
+Does this code correspond to what I see on the website?
+
+Could changing it affect something else?
+
+
+OWNER PRINCIPLE
+
+I do not need to memorize where every line of code lives.
+
+I need to learn how to find what I need, understand enough of the surrounding code, and make an intentional change.
+
+READ THE CODE AROUND WHAT I FOUND
+
+Finding the correct words or element is only the beginning.
+
+Before changing anything, I should look at the surrounding code and understand what role each part appears to have.
+
+
+EXAMPLE: A BUTTON
+
+Suppose I find:
+
+<a href="check-in.html" class="quiet-checkin-button">
+  Get the Free Check-In
+</a>
+
+There are different parts here doing different jobs.
+
+Get the Free Check-In
+
+This is the visible wording the visitor sees.
+
+If I only want to change what the button says, this is the part I would investigate.
+
+
+href="check-in.html"
+
+The href tells the link where to go.
+
+If the button wording and appearance are correct but it opens the wrong page, I should investigate the href or file path.
+
+
+class="quiet-checkin-button"
+
+The class gives this element a name that CSS can use to style it.
+
+If the button works and goes to the correct place but looks wrong, I may need to investigate the CSS connected to this class rather than changing the href or visible text.
+
+
+ONE ELEMENT CAN HAVE DIFFERENT RESPONSIBILITIES
+
+This is why I should describe the problem precisely.
+
+For the same button:
+
+Wrong words → investigate the visible HTML text.
+
+Wrong destination → investigate the href / link path.
+
+Wrong appearance → investigate the relevant CSS.
+
+Wrong interactive behaviour → investigate the behaviour involved, which may include JavaScript depending on the feature.
+
+
+BEFORE I EDIT
+
+Ask:
+
+1. What exactly is wrong or what exactly do I want to change?
+
+2. Which part of the code appears responsible for that?
+
+3. Am I changing only what is necessary?
+
+4. Could this change affect something else?
+
+
+OWNER PRINCIPLE
+
+Do not change code simply because I found it.
+
+First understand what role that piece of code is playing.
+
+Then change the part that corresponds to the result I actually want.
+
+MAKE ONE INTENTIONAL CHANGE AT A TIME
+
+Once I understand what needs to change and where the relevant code is, I should make the smallest change necessary to achieve the result I want.
+
+This makes the work easier to understand, test and troubleshoot.
+
+
+WHY SMALL CHANGES MATTER
+
+Suppose I change:
+
+- button wording
+- button colour
+- page spacing
+- navigation
+- several links
+
+all at the same time.
+
+Then I test the website and something is wrong.
+
+It may be difficult to know which change caused the problem.
+
+If I make one focused change, test it, and then continue, I can understand the effect of each decision more clearly.
+
+
+EXAMPLE
+
+Suppose the Check-In button has the correct wording and destination, but I want more space above it.
+
+The problem is spacing.
+
+I should investigate the CSS controlling that spacing.
+
+I should not also rewrite the button text or change its link unless those things need changing too.
+
+
+SAVE THE LOCAL CHANGE
+
+After making the intended change, press:
+
+Ctrl + S
+
+This saves the edited file on my computer.
+
+Remember:
+
+Ctrl + S does not publish the website.
+
+At this stage I am still working locally.
+
+
+TEST BEFORE PUBLISHING
+
+Before using Git to publish the update, I should inspect the result locally.
+
+Ask:
+
+Did the thing I intended to change actually change?
+
+Does it look or behave the way I expected?
+
+Did I accidentally affect something nearby?
+
+If the change could affect other pages, should I check those pages too?
+
+If it affects layout or design, should I check both laptop and mobile?
+
+
+IF THE RESULT IS WRONG
+
+Do not immediately make several more changes.
+
+First ask:
+
+"What did my last change actually do?"
+
+Then investigate that change.
+
+A useful troubleshooting habit is:
+
+Change one thing
+↓
+Save
+↓
+Test
+↓
+Observe the result
+↓
+Decide what to do next
+
+
+WHY THIS MATTERS
+
+Small, deliberate changes create information.
+
+If I change one thing and the problem appears, I have a useful clue about what caused it.
+
+If I change many things at once, I lose some of that information.
+
+
+OWNER PRINCIPLE
+
+Do not measure progress by how much code I changed.
+
+Measure it by whether I understood the problem, made the appropriate change, tested it, and achieved the intended result.
+
+3. OPERATING THE QUIET REBUILD CHECK-IN SYSTEM
+
+WHY I NEED TO UNDERSTAND THIS SYSTEM
+
+The Quiet Rebuild Check-In is not just a PDF or a button on the website.
+
+It is a connected system that moves a visitor through several steps:
+
+EL Quiet Rebuild website
+↓
+Check-In landing page
+↓
+MailerLite signup form
+↓
+Subscriber enters her name and email
+↓
+MailerLite automation begins
+↓
+Delivery email is sent
+↓
+Reader opens the Check-In PDF
+
+Each step depends on another part of the system.
+
+This means that if someone tells me:
+
+"I didn't receive the Check-In"
+
+I should not immediately assume that the PDF is broken or that the website is broken.
+
+I need to identify where the journey stopped.
+
+
+THE MAIN OPERATING PRINCIPLE
+
+When a connected system fails, do not ask only:
+
+"Why isn't it working?"
+
+Ask:
+
+"Which step worked successfully, and what was the first step that did not?"
+
+The last successful step helps me locate where I should investigate next.
+
+CONNECTION 1: WEBSITE → MAILERLITE FORM
+
+The website's job is to guide the visitor to the signup form.
+
+On EL Quiet Rebuild, the visitor can reach the Check-In through the branded Check-In page:
+
+https://elquietrebuild.github.io/el-quiet-rebuild/check-in.html
+
+The "Get the Free Check-In" button then sends the visitor to the MailerLite signup form.
+
+At this stage, the website is not collecting or storing the subscriber's email itself.
+
+MailerLite is responsible for the signup form and subscriber information.
+
+
+HOW TO THINK ABOUT A PROBLEM HERE
+
+Suppose someone says:
+
+"I clicked Get the Free Check-In, but the signup form did not open."
+
+The failure happened before she could use the MailerLite form.
+
+I should first investigate the connection between the website button and its destination.
+
+Possible questions include:
+
+Does the Check-In page open?
+
+Does the button appear?
+
+Can I click the button?
+
+Does it open the expected MailerLite form?
+
+Is the link in the HTML correct?
+
+
+IMPORTANT DISTINCTION
+
+If the MailerLite form opens successfully, then the website has completed this part of its job.
+
+If something fails after that point, I should not automatically start changing the website.
+
+I should continue following the visitor's journey to find the first step that fails.
+
+
+OWNER PRINCIPLE
+
+Test the system in the same order the visitor experiences it.
+
+Do not investigate every system at once.
+
+Find the last step that works, then investigate the next connection.
+
+CONNECTION 2: MAILERLITE FORM → SUBSCRIBER → AUTOMATION
+
+Once the visitor reaches the MailerLite form, MailerLite becomes responsible for the next part of the journey.
+
+The visitor enters her information and submits the form.
+
+For the EL Quiet Rebuild Check-In, the form asks for:
+
+Name
+Email
+
+The Check-In form uses double opt-in.
+
+This means submitting the form and becoming a confirmed subscriber are not necessarily the same step.
+
+The subscriber may need to confirm her email before the signup process is fully completed.
+
+
+WHY THIS DISTINCTION MATTERS
+
+Suppose someone says:
+
+"I filled in the form, but I didn't receive the Check-In."
+
+I should not immediately change the automation or PDF.
+
+First I need to determine whether the signup itself was completed successfully.
+
+I can investigate questions such as:
+
+Did the form submit successfully?
+
+Did MailerLite record the subscriber?
+
+If confirmation was required, did the subscriber complete it?
+
+Did the subscriber enter the correct email address?
+
+Did the subscriber reach the point that triggers the Check-In automation?
+
+
+THE AUTOMATION TRIGGER
+
+The EL Quiet Rebuild Check-In automation begins when the required form signup process is completed.
+
+The trigger is important because an automation does not simply run for everyone.
+
+Something specific has to tell MailerLite:
+
+"This subscriber should now enter this workflow."
+
+If the subscriber never reaches the trigger condition, the delivery email may never begin even if the email itself is designed correctly.
+
+
+THINK IN SEPARATE CHECKPOINTS
+
+A useful way to diagnose this part of the system is:
+
+Form opened
+↓
+Information submitted
+↓
+Subscriber recorded
+↓
+Required confirmation completed
+↓
+Automation trigger reached
+↓
+Subscriber enters workflow
+
+Each checkpoint answers a different question.
+
+If the subscriber appears correctly in MailerLite but never enters the workflow, I should investigate the trigger or automation rather than the website button.
+
+If the subscriber never appears in MailerLite, I should investigate an earlier part of the signup process.
+
+
+OWNER PRINCIPLE
+
+Do not treat "someone entered her email" as proof that the entire signup and automation process succeeded.
+
+Verify the checkpoints.
+
+In a connected system, knowing exactly what succeeded is more useful than guessing what failed.
+
+CONNECTION 3: AUTOMATION → DELIVERY EMAIL
+
+Once the subscriber successfully enters the Check-In workflow, the automation becomes responsible for moving her to the delivery email.
+
+For EL Quiet Rebuild, the workflow contains the email that gives the subscriber access to the Quiet Rebuild Check-In.
+
+
+ACTIVE VS PAUSED AUTOMATION
+
+An automation can exist inside MailerLite without actively processing new subscribers.
+
+For the Check-In system, the workflow should be Active.
+
+This distinction matters because creating an automation is not the same as having it running.
+
+
+THE DELIVERY EMAIL
+
+The delivery email contains the button:
+
+"Open Your Quiet Rebuild Check-In"
+
+That button connects the email to the Check-In PDF.
+
+This creates another important distinction:
+
+The automation controls whether the email is sent.
+
+The email contains the link that gives the reader access to the PDF.
+
+The PDF itself is a separate resource.
+
+
+DIAGNOSING THIS PART OF THE JOURNEY
+
+Suppose I have confirmed that:
+
+The subscriber completed the signup
+↓
+The subscriber entered the workflow
+
+but she still did not receive the delivery email.
+
+I have now learned something important.
+
+The website button is probably not the first place I should investigate because the subscriber already travelled successfully beyond the website.
+
+Instead, I should investigate the workflow and delivery stage.
+
+
+I CAN ASK:
+
+Is the automation Active?
+
+Did the subscriber actually enter the workflow?
+
+Does MailerLite show the workflow as completed, failed or still processing?
+
+Does MailerLite show that the delivery email was sent?
+
+Could the email have gone to Spam, Junk or another inbox category?
+
+
+USE SYSTEM EVIDENCE
+
+MailerLite provides information about what happened inside the workflow.
+
+For example, workflow activity can help show whether subscribers:
+
+Started
+Completed
+Failed
+
+Email statistics can also provide evidence about whether an email was:
+
+Sent
+Opened
+Clicked
+
+These numbers answer different questions.
+
+"Sent" helps me investigate delivery.
+
+"Opened" tells me the email was opened.
+
+"Clicked" tells me the subscriber used a link inside the email.
+
+I should not treat these measurements as if they mean the same thing.
+
+
+OWNER PRINCIPLE
+
+Follow the evidence forward.
+
+If the subscriber entered the workflow, investigate what happened inside the workflow.
+
+If the email was sent, investigate what happened after sending.
+
+Every confirmed step removes some possible causes and helps narrow the problem.
+
+CONNECTION 3: AUTOMATION → DELIVERY EMAIL
+
+Once the subscriber successfully enters the Check-In workflow, the automation becomes responsible for moving her to the delivery email.
+
+For EL Quiet Rebuild, the workflow contains the email that gives the subscriber access to the Quiet Rebuild Check-In.
+
+
+ACTIVE VS PAUSED AUTOMATION
+
+An automation can exist inside MailerLite without actively processing new subscribers.
+
+For the Check-In system, the workflow should be Active.
+
+This distinction matters because creating an automation is not the same as having it running.
+
+
+THE DELIVERY EMAIL
+
+The delivery email contains the button:
+
+"Open Your Quiet Rebuild Check-In"
+
+That button connects the email to the Check-In PDF.
+
+This creates another important distinction:
+
+The automation controls whether the email is sent.
+
+The email contains the link that gives the reader access to the PDF.
+
+The PDF itself is a separate resource.
+
+
+DIAGNOSING THIS PART OF THE JOURNEY
+
+Suppose I have confirmed that:
+
+The subscriber completed the signup
+↓
+The subscriber entered the workflow
+
+but she still did not receive the delivery email.
+
+I have now learned something important.
+
+The website button is probably not the first place I should investigate because the subscriber already travelled successfully beyond the website.
+
+Instead, I should investigate the workflow and delivery stage.
+
+
+I CAN ASK:
+
+Is the automation Active?
+
+Did the subscriber actually enter the workflow?
+
+Does MailerLite show the workflow as completed, failed or still processing?
+
+Does MailerLite show that the delivery email was sent?
+
+Could the email have gone to Spam, Junk or another inbox category?
+
+
+USE SYSTEM EVIDENCE
+
+MailerLite provides information about what happened inside the workflow.
+
+For example, workflow activity can help show whether subscribers:
+
+Started
+Completed
+Failed
+
+Email statistics can also provide evidence about whether an email was:
+
+Sent
+Opened
+Clicked
+
+These numbers answer different questions.
+
+"Sent" helps me investigate delivery.
+
+"Opened" tells me the email was opened.
+
+"Clicked" tells me the subscriber used a link inside the email.
+
+I should not treat these measurements as if they mean the same thing.
+
+
+OWNER PRINCIPLE
+
+Follow the evidence forward.
+
+If the subscriber entered the workflow, investigate what happened inside the workflow.
+
+If the email was sent, investigate what happened after sending.
+
+Every confirmed step removes some possible causes and helps narrow the problem.
+
+4. EL WEBSITE LANGUAGE — WHAT THE ELEMENTS AND TERMS MEAN
+
+HTML
+
+STANDS FOR:
+HyperText Markup Language
+
+WHAT IT IS:
+
+HTML is the language used to create the content and structure of a webpage.
+
+It tells the browser what the different parts of the page are.
+
+For example:
+
+<h1>EL Quiet Rebuild</h1>
+
+The <h1> tells the browser that "EL Quiet Rebuild" is a main heading.
+
+
+WHAT HTML DOES:
+
+HTML can define things such as:
+
+Headings
+Paragraphs
+Links
+Images
+Buttons or clickable links
+Sections
+Lists
+Navigation
+The main content of a page
+
+HTML mainly answers:
+
+"What is on this page, and how is the content structured?"
+
+
+WHERE I SEE IT IN EL:
+
+EL Quiet Rebuild uses .html files for its webpages.
+
+Examples include:
+
+index.html
+check-in.html
+reading-room/psychology-of-money.html
+
+When I change written content, add a section, change a link destination or change the structure of a page, I will often be working with HTML.
+
+
+--------------------------------------------------
+
+
+CSS
+
+STANDS FOR:
+Cascading Style Sheets
+
+WHAT IT IS:
+
+CSS is the language used to control the appearance and layout of webpages.
+
+HTML might create a heading.
+
+CSS can control how that heading looks.
+
+
+WHAT CSS DOES:
+
+CSS can control things such as:
+
+Font size
+Spacing
+Borders
+Backgrounds
+Text alignment
+Page layout
+Button appearance
+Element width
+Mobile layout
+
+CSS mainly answers:
+
+"How should this webpage look?"
+
+
+WHERE I SEE IT IN EL:
+
+EL Quiet Rebuild uses CSS to create its visual design.
+
+For example, a class such as:
+
+.quiet-checkin-button
+
+can contain styling instructions for the Check-In button.
+
+If an EL element works correctly but its appearance needs changing, CSS is often the first place I should investigate.
+
+
+--------------------------------------------------
+
+
+JAVASCRIPT
+
+COMMON ABBREVIATION:
+JS
+
+WHAT IT IS:
+
+JavaScript is a programming language commonly used to add behaviour and interaction to webpages.
+
+HTML provides structure.
+
+CSS provides appearance.
+
+JavaScript can make parts of a webpage respond or behave dynamically.
+
+
+WHAT JAVASCRIPT CAN DO:
+
+JavaScript can be used for things such as:
+
+Responding to clicks
+Opening or closing interactive menus
+Changing content without loading a completely new page
+Reacting to user actions
+Running certain website features
+
+JavaScript mainly answers:
+
+"What should happen when something occurs?"
+
+
+WHERE I MAY ENCOUNTER IT IN EL:
+
+EL Quiet Rebuild may use JavaScript where website behaviour or an external script requires it.
+
+For example, website analytics can use a JavaScript script that runs when someone visits a page.
+
+I should not assume every website problem requires JavaScript.
+
+If the problem is simply wording, structure or appearance, HTML or CSS may be the more relevant place to investigate.
+
+
+A SIMPLE WAY TO REMEMBER THE THREE
+
+HTML = STRUCTURE AND CONTENT
+
+CSS = APPEARANCE AND LAYOUT
+
+JAVASCRIPT = BEHAVIOUR AND INTERACTION
+
+HTML HEADINGS: <h1> TO <h6>
+
+WHAT THEY ARE:
+
+HTML provides six levels of headings:
+
+<h1>
+<h2>
+<h3>
+<h4>
+<h5>
+<h6>
+
+The "h" stands for heading.
+
+The number represents the heading level and its place in the content hierarchy.
+
+These elements help organize a webpage so that the browser, search engines and readers can understand how the content is structured.
+
+
+<h1> — MAIN PAGE HEADING
+
+<h1> is normally the main heading of the page.
+
+Example:
+
+<h1>The Quiet Rebuild Check-In</h1>
+
+A useful way to think about <h1> is:
+
+"What is this page mainly about?"
+
+A page will usually have one main <h1>.
+
+
+<h2> — MAJOR SECTION HEADING
+
+<h2> is used for important sections underneath the main page topic.
+
+Example:
+
+<h1>The Quiet Rebuild Check-In</h1>
+
+<h2>What will you check in with?</h2>
+
+<h2>Ready to begin?</h2>
+
+The <h1> identifies the page.
+
+The <h2> headings divide that page into major sections.
+
+
+<h3> — SUBSECTION
+
+<h3> can be used for a subsection that belongs underneath an <h2> section.
+
+The hierarchy might look like:
+
+<h1> Main page topic
+
+    <h2> Major section
+
+        <h3> Subsection
+
+
+<h4>, <h5> AND <h6>
+
+These provide additional levels when content becomes more deeply structured.
+
+I do not need to use every heading level on every page.
+
+I should choose headings according to the structure and meaning of the content, not simply because I want text to look bigger or smaller.
+
+CSS should control appearance.
+
+
+IMPORTANT DISTINCTION
+
+HTML heading level = meaning and structure.
+
+CSS = how the heading looks.
+
+For example, I should not choose <h4> instead of <h2> merely because I want smaller text.
+
+If something is logically an <h2>, I can keep it as an <h2> and use CSS to change its visual size.
+
+
+A SIMPLE WAY TO REMEMBER IT
+
+<h1> = What is this PAGE about?
+
+<h2> = What are the MAIN SECTIONS?
+
+<h3> = What belongs INSIDE one of those sections?
+
+<h4> to <h6> = Further levels if the content genuinely needs them.
+
+
+EL OWNER PRINCIPLE
+
+Heading levels create hierarchy.
+
+I should think about the relationship between the information first, then choose the heading level that represents that relationship.
+
+THE <p> ELEMENT — PARAGRAPH
+
+WHAT IT STANDS FOR:
+
+The "p" stands for paragraph.
+
+
+WHAT IT DOES:
+
+The <p> element tells the browser:
+
+"This content is a paragraph."
+
+It is used for normal blocks of written text on a webpage.
+
+
+EXAMPLE:
+
+<p>Less display. More depth.</p>
+
+There are two important parts:
+
+<p>
+
+This is the opening tag. It tells the browser where the paragraph begins.
+
+</p>
+
+This is the closing tag. The forward slash tells the browser that the paragraph ends here.
+
+The text between them is the content:
+
+Less display. More depth.
+
+
+WHERE I SEE IT IN EL:
+
+EL Quiet Rebuild uses paragraphs throughout the website for things such as:
+
+Introductions
+Explanations
+Reflections
+Descriptions
+Supporting text
+Brand messages
+
+For example:
+
+<p class="check-in-philosophy">Less display. More depth.</p>
+
+This contains more than just the paragraph element.
+
+<p> = this is a paragraph
+
+class="check-in-philosophy" = this paragraph has been given a class name
+
+Less display. More depth. = the content
+
+</p> = the paragraph ends
+
+
+IMPORTANT DISTINCTION
+
+HTML tells the browser that something is a paragraph.
+
+CSS controls how that paragraph looks.
+
+For example, CSS could change its:
+
+Font size
+Spacing
+Alignment
+Width
+Appearance
+
+I should not add extra <p> elements simply because I want more visual space.
+
+Spacing is normally a CSS responsibility.
+
+
+A SIMPLE WAY TO REMEMBER IT
+
+<p> = BEGIN PARAGRAPH
+
+</p> = END PARAGRAPH
+
+
+EL OWNER PRINCIPLE
+
+HTML should describe what the content is.
+
+CSS should control how the content is presented.
+
+THE <a> ELEMENT — ANCHOR / LINK
+
+WHAT IT IS:
+
+The <a> element is called the anchor element.
+
+It is used to create links.
+
+A link can take a visitor to:
+
+Another page on my website
+Another website
+A PDF or other file
+A specific location on a page
+An email address or other supported destination
+
+
+BASIC EXAMPLE:
+
+<a href="check-in.html">Open the Check-In</a>
+
+
+BREAKING IT APART:
+
+<a
+
+This begins the anchor element.
+
+
+href="check-in.html"
+
+The href tells the browser where the link should go.
+
+In this example, the destination is:
+
+check-in.html
+
+
+>
+
+This finishes the opening tag.
+
+
+Open the Check-In
+
+This is the visible text the visitor can click.
+
+
+</a>
+
+This closes the anchor element.
+
+
+WHAT DOES "href" STAND FOR?
+
+href means:
+
+Hypertext Reference
+
+It identifies the destination associated with the link.
+
+A useful way to remember it is:
+
+href = WHERE DOES THIS LINK GO?
+
+
+AN EL EXAMPLE:
+
+<a
+  href="https://preview.mailerlite.io/forms/2616969/197787000757028101/share"
+  class="quiet-checkin-button"
+  target="_blank"
+  rel="noopener"
+>
+  Get the Free Check-In
+</a>
+
+
+WHAT THE PARTS MEAN:
+
+<a> = this is a link
+
+href = where the link goes
+
+class = a name that can be used to target and style this element
+
+target="_blank" = open the destination in a new browser tab or window
+
+rel="noopener" = a security-related instruction commonly used when opening another page with target="_blank"
+
+Get the Free Check-In = the text the visitor sees
+
+</a> = end of the link
+
+
+A LINK CAN LOOK LIKE A BUTTON
+
+This is an important distinction.
+
+Something that looks like a button on the website may actually be an <a> link styled with CSS to look like a button.
+
+For example:
+
+HTML gives me the link and its destination.
+
+CSS gives it the visual appearance of a button.
+
+So if an EL button:
+
+LOOKS WRONG
+→ I may investigate its CSS.
+
+GOES TO THE WRONG PLACE
+→ I should investigate its href.
+
+HAS THE WRONG WORDING
+→ I should investigate the text between <a> and </a>.
+
+
+INTERNAL AND EXTERNAL LINKS
+
+An internal link connects to something inside the EL website.
+
+Example:
+
+href="check-in.html"
+
+An external link connects to a different website or service.
+
+For example, EL can link from its website to the MailerLite signup form.
+
+
+OWNER PRINCIPLE
+
+When I see an <a> element, I should think:
+
+"This creates a link."
+
+When I see href, I should think:
+
+"This tells the link where to go."
+
+THE class ATTRIBUTE — GIVING ELEMENTS A REUSABLE NAME
+
+WHAT IT IS:
+
+class is an HTML attribute.
+
+An attribute gives additional information about an HTML element.
+
+A class gives one or more HTML elements a name that can be used to identify them as belonging to the same group.
+
+Classes are especially useful for connecting HTML elements to CSS.
+
+
+EXAMPLE:
+
+<p class="check-in-philosophy">
+  Less display. More depth.
+</p>
+
+
+BREAKING IT APART:
+
+<p>
+
+This tells me the element is a paragraph.
+
+
+class="check-in-philosophy"
+
+This gives the paragraph the class name:
+
+check-in-philosophy
+
+
+Less display. More depth.
+
+This is the paragraph's content.
+
+
+</p>
+
+This closes the paragraph.
+
+
+HOW CLASS CONNECTS HTML TO CSS
+
+Suppose my HTML contains:
+
+<p class="check-in-philosophy">
+  Less display. More depth.
+</p>
+
+My CSS could contain:
+
+.check-in-philosophy {
+  text-align: center;
+}
+
+The class name connects the two.
+
+In HTML:
+
+class="check-in-philosophy"
+
+In CSS:
+
+.check-in-philosophy
+
+The dot before the name in CSS means:
+
+"Target elements that have this class."
+
+
+A SIMPLE WAY TO READ IT
+
+HTML:
+
+class="quiet-checkin-button"
+
+means:
+
+"This element belongs to the class called quiet-checkin-button."
+
+
+CSS:
+
+.quiet-checkin-button
+
+means:
+
+"Apply these CSS instructions to elements with the class quiet-checkin-button."
+
+
+WHY CLASSES ARE REUSABLE
+
+The same class can be used on more than one HTML element.
+
+Example:
+
+<a class="reading-room-link">Explore Book Picks</a>
+
+<a class="reading-room-link">Enter Reflection Room</a>
+
+<a class="reading-room-link">Join the Discussion</a>
+
+These are different links, but they can share the same class.
+
+CSS can then give them a consistent appearance without requiring me to write separate styling instructions for every link.
+
+
+AN ELEMENT CAN HAVE MORE THAN ONE CLASS
+
+Example:
+
+<p class="intro centered">
+
+This paragraph has two classes:
+
+intro
+
+and
+
+centered
+
+Each class can provide different styling or be used for a different purpose.
+
+
+IMPORTANT: CLASS IS NOT THE SAME AS THE HTML ELEMENT
+
+In:
+
+<p class="check-in-philosophy">
+
+p tells me WHAT the element is:
+
+A paragraph.
+
+class tells me which named group the element belongs to:
+
+check-in-philosophy.
+
+
+CLASS NAMES DO NOT AUTOMATICALLY CREATE A DESIGN
+
+Giving something:
+
+class="quiet-checkin-button"
+
+does not automatically make it look like a button.
+
+CSS must contain styling instructions connected to that class if I want the class to affect its appearance.
+
+
+WHERE I SEE CLASSES IN EL
+
+EL Quiet Rebuild uses classes throughout the website for things such as:
+
+Buttons
+Reading Room links
+Sections
+Brand messages
+Check-In content
+Layout
+Navigation
+Repeated design patterns
+
+Classes help EL maintain consistency while still allowing particular groups of elements to have their own design.
+
+
+A SIMPLE WAY TO REMEMBER IT
+
+HTML element = WHAT IS THIS?
+
+class = WHAT GROUP OR REUSABLE NAME DOES IT HAVE?
+
+CSS .class-name = HOW SHOULD ELEMENTS IN THAT CLASS BE STYLED?
+
+
+OWNER PRINCIPLE
+
+When I see class="something" in HTML, I should not see it as random code.
+
+I should think:
+
+"This element has been given a reusable name. I can search for that name in the CSS to understand how it is being styled."
+
+THE id ATTRIBUTE — GIVING ONE SPECIFIC ELEMENT A UNIQUE IDENTIFIER
+
+WHAT IT IS:
+
+id is an HTML attribute.
+
+"id" means identifier.
+
+An id gives a specific HTML element a unique name so that it can be identified directly.
+
+Example:
+
+<section id="resources">
+
+This means:
+
+"This section has the identifier resources."
+
+
+HOW id IS DIFFERENT FROM class
+
+class is normally used when multiple elements can belong to the same group.
+
+id is normally used to identify one specific element.
+
+Think of it like this:
+
+class = GROUP
+
+id = INDIVIDUAL
+
+
+EXAMPLE WITH class:
+
+<a class="reading-room-link">Explore Book Picks</a>
+
+<a class="reading-room-link">Enter Reflection Room</a>
+
+<a class="reading-room-link">Join the Discussion</a>
+
+Several links can share:
+
+class="reading-room-link"
+
+
+EXAMPLE WITH id:
+
+<section id="resources">
+
+The id identifies this particular section as:
+
+resources
+
+
+HOW CSS CAN TARGET AN id
+
+In HTML:
+
+<section id="resources">
+
+In CSS:
+
+#resources {
+  ...
+}
+
+The # symbol tells CSS:
+
+"Target the element with this id."
+
+
+COMPARE THE SYMBOLS
+
+HTML:
+
+class="reading-room-link"
+
+CSS:
+
+.reading-room-link
+
+The dot . represents a class.
+
+
+HTML:
+
+id="resources"
+
+CSS:
+
+#resources
+
+The # represents an id.
+
+
+WHY id SHOULD BE UNIQUE
+
+An id is intended to identify one specific element on a page.
+
+I should therefore avoid giving several different elements on the same page the exact same id.
+
+Classes are designed to be reused.
+
+Ids are designed to identify something uniquely.
+
+
+id CAN ALSO HELP CREATE LINKS TO PARTS OF A PAGE
+
+An id can give a section a destination that a link can point to.
+
+Example:
+
+<section id="resources">
+
+A link could use:
+
+<a href="#resources">View Resources</a>
+
+The #resources destination tells the browser to move to the element whose id is:
+
+resources
+
+This is sometimes called an anchor link or page-fragment link.
+
+
+IMPORTANT DISTINCTION
+
+id does not automatically change how something looks.
+
+Just like class, it is an identifier.
+
+CSS or another part of the website can use that identifier for a particular purpose.
+
+
+CLASS VS ID — SIMPLE MEMORY RULE
+
+class="something"
+
+= reusable group name
+
+CSS uses:
+
+.something
+
+
+id="something"
+
+= unique identifier for a specific element
+
+CSS uses:
+
+#something
+
+
+WHERE I MAY SEE id IN EL
+
+EL Quiet Rebuild may use ids for things such as:
+
+Specific sections
+Navigation destinations
+Unique page elements
+JavaScript targets
+Direct links to particular parts of a page
+
+
+OWNER PRINCIPLE
+
+When I see:
+
+class="..."
+
+I should think:
+
+"What group does this element belong to?"
+
+
+When I see:
+
+id="..."
+
+I should think:
+
+"What specific element is this identifying?"
+
+THE <div> ELEMENT — A GENERAL CONTAINER
+
+WHAT IT STANDS FOR:
+
+"div" comes from division.
+
+WHAT IT IS:
+
+The <div> element is a general-purpose HTML container.
+
+It is used to group pieces of content together.
+
+Unlike elements such as <p>, <nav> or <main>, a <div> does not tell the browser that the content has a particular meaning.
+
+It mainly says:
+
+"Treat these things as one group."
+
+
+EXAMPLE:
+
+<div class="quiet-checkin-feature">
+
+  <h3>The Quiet Rebuild Check-In</h3>
+
+  <p>
+    A guided check-in for noticing what needs your attention.
+  </p>
+
+  <a href="..." class="quiet-checkin-button">
+    Get the Free Check-In
+  </a>
+
+</div>
+
+
+WHAT IS HAPPENING HERE?
+
+<div class="quiet-checkin-feature">
+
+This begins a container.
+
+The class gives that container the reusable name:
+
+quiet-checkin-feature
+
+
+Inside the container are several different elements:
+
+<h3> = heading
+
+<p> = paragraph
+
+<a> = link
+
+
+</div>
+
+This closes the container.
+
+
+WHY GROUP ELEMENTS TOGETHER?
+
+Suppose I want the heading, paragraph and link to behave visually as one feature on the page.
+
+Wrapping them inside a <div> gives me a container that I can target with CSS.
+
+For example:
+
+.quiet-checkin-feature {
+  max-width: 760px;
+  text-align: center;
+}
+
+Instead of thinking about every element separately, CSS can now work with the larger group.
+
+
+IMPORTANT: <div> DOES NOT MEAN "BOX"
+
+A <div> is a container in the HTML structure.
+
+It does not automatically create:
+
+A visible box
+A border
+A background
+Spacing
+Rounded corners
+
+Those visual choices come from CSS.
+
+A <div> can exist on a webpage without the visitor seeing any obvious container around the content.
+
+
+<div> VS <section>
+
+These can sometimes look similar in the code because both can contain other elements.
+
+But they do not mean exactly the same thing.
+
+<section> says:
+
+"This content forms a meaningful section of the page."
+
+<div> says:
+
+"I need to group this content, but I am not giving the group a specific semantic meaning."
+
+
+WHEN I SHOULD THINK ABOUT <div>
+
+If I mainly need a container for:
+
+Layout
+Styling
+Grouping elements
+
+a <div> may be appropriate.
+
+If the content itself represents a meaningful part of the document, a more descriptive element such as <section>, <nav> or <main> may be more appropriate.
+
+
+WHERE I SEE IT IN EL
+
+EL Quiet Rebuild uses containers to group related content and allow CSS to control the layout and presentation.
+
+For example:
+
+<div class="quiet-checkin-feature">
+
+groups the content belonging to the Quiet Rebuild Check-In feature.
+
+
+A SIMPLE WAY TO REMEMBER IT
+
+<div> = GENERAL CONTAINER
+
+It groups things together.
+
+It does not automatically tell me what those things mean.
+
+
+OWNER PRINCIPLE
+
+When I see a <div>, I should ask:
+
+"What content is being grouped together, and why?"
+
+I should not automatically think:
+
+"div means a visible box."
+
+The HTML creates the container.
+
+CSS decides how that container looks.
+
+THE <section> ELEMENT — A MEANINGFUL SECTION OF A PAGE
+
+WHAT IT IS:
+
+The <section> element groups content that belongs together as a meaningful part of a webpage.
+
+A section usually represents a distinct topic, idea or part of the page.
+
+
+EXAMPLE:
+
+<section>
+
+  <h2>What will you check in with?</h2>
+
+  <p>
+    The Quiet Rebuild Check-In helps you reflect on several areas of your life.
+  </p>
+
+</section>
+
+
+BREAKING IT APART:
+
+<section>
+
+This tells the browser that a meaningful section of the page begins here.
+
+
+<h2>
+
+This gives the section a heading.
+
+
+<p>
+
+This contains supporting content inside the section.
+
+
+</section>
+
+This tells the browser that the section ends here.
+
+
+WHY A SECTION OFTEN HAS A HEADING
+
+A useful question is:
+
+"If I gave this group of content a title, would that title describe a meaningful part of the page?"
+
+If yes, <section> may be appropriate.
+
+For example:
+
+About EL Quiet Rebuild
+
+Reading Room
+
+Resources
+
+What Will You Check In With?
+
+These can represent meaningful sections of a page.
+
+
+<section> VS <div>
+
+This distinction is important.
+
+<section>
+
+has structural meaning.
+
+It tells me:
+
+"This content belongs together because it represents a particular part or topic of the page."
+
+
+<div>
+
+is a general container.
+
+It tells me:
+
+"I am grouping these elements together."
+
+The reason may simply be layout or styling.
+
+
+EXAMPLE:
+
+<section class="resources">
+
+  <h2>Resources</h2>
+
+  <div class="quiet-checkin-feature">
+
+    <h3>The Quiet Rebuild Check-In</h3>
+
+    <p>A guided resource for reflection.</p>
+
+  </div>
+
+</section>
+
+
+In this example:
+
+<section>
+
+represents the meaningful Resources section.
+
+
+<div>
+
+groups the Check-In feature inside that section.
+
+
+IMPORTANT DISTINCTION
+
+Both <section> and <div> can be styled with CSS.
+
+The difference is not mainly how they look.
+
+The difference is what they mean in the HTML structure.
+
+HTML meaning and CSS appearance are separate decisions.
+
+
+A SIMPLE WAY TO REMEMBER IT
+
+<section> = MEANINGFUL PART OF THE PAGE
+
+<div> = GENERAL CONTAINER
+
+
+OWNER PRINCIPLE
+
+I should not choose HTML elements only according to how I want something to look.
+
+I should first ask:
+
+"What is this content?"
+
+Then choose an HTML element that describes its purpose as clearly as possible.
+
+THE <main> ELEMENT — THE PRIMARY CONTENT OF THE PAGE
+
+WHAT IT IS:
+
+The <main> element identifies the primary content of a webpage.
+
+It tells the browser:
+
+"This is the main content that this particular page is about."
+
+
+AN EL EXAMPLE:
+
+On the Quiet Rebuild Check-In page, I have used:
+
+<main class="check-in-page">
+
+The parts mean:
+
+<main>
+
+The main content of this page begins here.
+
+
+class="check-in-page"
+
+The main element has the class name:
+
+check-in-page
+
+This allows the element to be identified and, for example, targeted by CSS.
+
+
+</main>
+
+The main content ends here.
+
+
+WHAT BELONGS INSIDE <main>?
+
+The content that is central to the purpose of that particular page.
+
+For example, on the EL Check-In page, the main content can include:
+
+The page heading
+
+The introduction
+
+What the reader will check in with
+
+The call to action
+
+The EL philosophy and closing message
+
+
+WHAT USUALLY DOES NOT DEFINE <main>?
+
+Elements that are part of the wider website rather than the unique purpose of that page may sit outside the main content.
+
+For example:
+
+Site-wide navigation
+
+Some header content
+
+Some footer content
+
+
+<main> VS <section> VS <div>
+
+<main>
+
+= the primary content of the page
+
+
+<section>
+
+= a meaningful section within the page
+
+
+<div>
+
+= a general container used to group content
+
+
+A SIMPLE STRUCTURE COULD LOOK LIKE:
+
+<main>
+
+  <section>
+    ...
+  </section>
+
+  <section>
+    ...
+  </section>
+
+</main>
+
+
+This means:
+
+The <main> contains the page's primary content.
+
+The <section> elements divide that content into meaningful parts.
+
+
+IMPORTANT DISTINCTION
+
+<main> does not mean:
+
+"Make this content large."
+
+It also does not automatically control the visual design.
+
+It describes the role of the content.
+
+CSS remains responsible for how that content looks.
+
+
+A SIMPLE WAY TO REMEMBER IT
+
+<main> = WHAT IS THIS PAGE MAINLY HERE TO SHOW OR DO?
+
+
+OWNER PRINCIPLE
+
+When I see <main>, I should think about the purpose of the page.
+
+It helps define the primary content rather than merely creating another visual container.
+
+THE <nav> ELEMENT — NAVIGATION
+
+WHAT IT STANDS FOR:
+
+"nav" is short for navigation.
+
+
+WHAT IT IS:
+
+The <nav> element identifies a group of important navigation links.
+
+It tells the browser:
+
+"These links are used to navigate through the website or an important part of it."
+
+
+AN EL EXAMPLE:
+
+EL Quiet Rebuild has main navigation links such as:
+
+Home
+About
+Reading Room
+Resources
+Shop
+Contact
+
+These links help visitors move between the main areas of the website.
+
+
+A SIMPLE EXAMPLE:
+
+<nav>
+
+  <a href="index.html">Home</a>
+
+  <a href="reading-room.html">Reading Room</a>
+
+  <a href="#resources">Resources</a>
+
+</nav>
+
+
+BREAKING IT APART:
+
+<nav>
+
+The navigation area begins.
+
+
+<a>
+
+Each anchor element creates a link.
+
+
+href
+
+Each href tells its link where to go.
+
+
+</a>
+
+The individual link ends.
+
+
+</nav>
+
+The navigation area ends.
+
+
+WHAT <nav> DOES NOT DO
+
+<nav> does not automatically:
+
+Put links across the top of the screen
+
+Create a navigation bar design
+
+Choose colours
+
+Add spacing
+
+Make navigation work well on mobile
+
+Those visual and layout decisions are generally handled by CSS.
+
+<nav> describes the PURPOSE of the group:
+
+Navigation.
+
+
+<nav> VS <a>
+
+These have different responsibilities.
+
+<nav>
+
+= identifies the navigation area
+
+
+<a>
+
+= creates an individual link
+
+
+A <nav> can therefore contain several <a> elements.
+
+
+<nav> VS <main>
+
+<nav>
+
+= helps the visitor move around the website
+
+
+<main>
+
+= contains the primary content of the current page
+
+
+WHY THIS MATTERS
+
+Suppose the EL navigation looks wrong.
+
+I may investigate CSS.
+
+Suppose the Reading Room navigation link goes to the wrong page.
+
+I should investigate that link's href.
+
+Suppose I am trying to understand where the main navigation begins and ends in the HTML.
+
+I can look for:
+
+<nav>
+
+and
+
+</nav>
+
+
+A SIMPLE WAY TO REMEMBER IT
+
+<nav> = NAVIGATION AREA
+
+<a> = INDIVIDUAL LINK
+
+href = LINK DESTINATION
+
+
+OWNER PRINCIPLE
+
+When I read HTML, I should begin seeing relationships between elements.
+
+<nav> tells me what the group is for.
+
+<a> tells me that something inside it is a link.
+
+href tells me where that particular link goes.
+
+THE <ul> AND <li> ELEMENTS — CREATING A LIST
+
+WHAT THEY STAND FOR:
+
+<ul> = Unordered List
+
+<li> = List Item
+
+
+WHAT IS AN UNORDERED LIST?
+
+An unordered list is a group of related items where the order is not necessarily a ranking or sequence.
+
+A browser commonly displays an unordered list with bullet points.
+
+
+AN EL EXAMPLE:
+
+The Quiet Rebuild Check-In covers:
+
+Money
+Habits
+Confidence
+Standards
+Skills
+Direction
+
+These are related items, but they do not have to mean:
+
+Money is first in importance.
+
+Habits is second.
+
+Confidence is third.
+
+They are simply a group of areas.
+
+HTML can represent them as an unordered list.
+
+
+EXAMPLE:
+
+<ul>
+  <li>Money</li>
+  <li>Habits</li>
+  <li>Confidence</li>
+  <li>Standards</li>
+  <li>Skills</li>
+  <li>Direction</li>
+</ul>
+
+
+BREAKING IT APART:
+
+<ul>
+
+The unordered list begins.
+
+
+<li>Money</li>
+
+This creates one list item:
+
+Money
+
+
+Each additional <li> creates another item in the same list.
+
+
+</ul>
+
+The unordered list ends.
+
+
+THE RELATIONSHIP BETWEEN THEM
+
+<ul> creates the LIST.
+
+<li> creates each ITEM inside the list.
+
+A useful way to read it is:
+
+<ul>
+
+"Here comes a list."
+
+<li>
+
+"Here is one item in that list."
+
+
+WHAT CSS CAN CHANGE
+
+HTML identifies the information as a list.
+
+CSS can control how that list is presented.
+
+For example, CSS can affect:
+
+Spacing
+
+Alignment
+
+Bullet appearance
+
+Indentation
+
+Text appearance
+
+Layout
+
+
+IMPORTANT DISTINCTION
+
+I should not avoid using a list simply because I do not want visible bullet points.
+
+If the content is logically a list, HTML can still describe it as a list.
+
+CSS can change how that list looks.
+
+
+WHAT ABOUT <ol>?
+
+Another HTML element is:
+
+<ol>
+
+This means:
+
+Ordered List.
+
+An ordered list is useful when the sequence matters.
+
+For example:
+
+1. First step
+2. Second step
+3. Third step
+
+I do not need to use <ol> just because several things are being listed.
+
+I should ask whether their ORDER has meaning.
+
+
+A SIMPLE WAY TO REMEMBER IT
+
+<ul> = UNORDERED LIST
+
+<li> = LIST ITEM
+
+<ol> = ORDERED LIST
+
+
+OWNER PRINCIPLE
+
+The HTML element should reflect the meaning of the information.
+
+If I have a group of related items, I should think:
+
+"Is this actually a list?"
+
+If sequence matters, an ordered list may be appropriate.
+
+If sequence does not matter, an unordered list may be appropriate.
+
+THE <head> AND <body> ELEMENTS — INFORMATION ABOUT THE PAGE VS CONTENT ON THE PAGE
+
+These two elements have very different responsibilities.
+
+
+THE <head> ELEMENT
+
+WHAT IT IS:
+
+The <head> contains information ABOUT the webpage.
+
+Most of this information is not displayed as the main visible content of the page.
+
+It can contain instructions and information that browsers, search engines and other services use.
+
+
+EXAMPLES OF THINGS I MAY FIND INSIDE <head>:
+
+The page title
+
+Metadata
+
+A connection to the CSS stylesheet
+
+Information used when a page is shared
+
+Other page-level instructions
+
+
+A SIMPLE EXAMPLE:
+
+<head>
+
+  <title>EL Quiet Rebuild</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+WHAT THIS MEANS:
+
+<head>
+
+Information about the webpage begins.
+
+
+<title>
+
+Defines the page title used by the browser and for other purposes.
+
+
+<link rel="stylesheet" href="style.css">
+
+Connects this HTML page to its CSS stylesheet.
+
+
+</head>
+
+The head ends.
+
+
+--------------------------------------------------
+
+
+THE <body> ELEMENT
+
+WHAT IT IS:
+
+The <body> contains the webpage content and elements that form the page visitors interact with and experience.
+
+
+EXAMPLES OF THINGS I MAY FIND INSIDE <body>:
+
+Navigation
+
+Headings
+
+Paragraphs
+
+Sections
+
+Links
+
+Lists
+
+Main content
+
+Images
+
+Buttons or button-like links
+
+
+A SIMPLE EXAMPLE:
+
+<body>
+
+  <nav>
+    ...
+  </nav>
+
+  <main>
+
+    <h1>EL Quiet Rebuild</h1>
+
+    <p>Less display. More depth.</p>
+
+  </main>
+
+</body>
+
+
+THE BASIC RELATIONSHIP
+
+<head>
+
+= information ABOUT the webpage
+
+
+<body>
+
+= the webpage content and interface itself
+
+
+A SIMPLE WAY TO VISUALIZE IT
+
+HTML DOCUMENT
+
+    <head>
+        Information and instructions about the page
+    </head>
+
+    <body>
+        The page content and elements
+    </body>
+
+
+WHY THIS MATTERS WHEN I AM TROUBLESHOOTING
+
+Suppose I want to change a paragraph visitors can read on the page.
+
+I would normally expect to find that content somewhere inside <body>.
+
+Suppose I am investigating the page title, stylesheet connection or certain metadata.
+
+I would look inside <head>.
+
+
+IMPORTANT DISTINCTION
+
+<head> does NOT mean the visible header at the top of the website.
+
+The HTML element:
+
+<head>
+
+contains page information and instructions.
+
+A visible website header is a different concept and may use:
+
+<header>
+
+
+A SIMPLE WAY TO REMEMBER IT
+
+<head> = INFORMATION ABOUT THE PAGE
+
+<body> = CONTENT AND ELEMENTS OF THE PAGE
+
+
+OWNER PRINCIPLE
+
+When I open an HTML document, I should begin recognizing its larger structure.
+
+I do not need to understand every line immediately.
+
+First I can identify:
+
+Where is the <head>?
+
+Where is the <body>?
+
+Then I can narrow down where the information I need is likely to live.
+
+THE <link> ELEMENT — CONNECTING THE HTML PAGE TO AN EXTERNAL RESOURCE
+
+WHAT IT IS:
+
+The <link> element connects an HTML document to another resource that the page needs.
+
+For EL Quiet Rebuild, one of its most important uses is connecting an HTML page to a CSS stylesheet.
+
+
+AN EL EXAMPLE:
+
+<link rel="stylesheet" href="style.css">
+
+
+BREAKING IT APART:
+
+<link
+
+This begins the link element.
+
+
+rel="stylesheet"
+
+"rel" means relationship.
+
+This tells the browser what relationship the linked resource has to the HTML document.
+
+In this example:
+
+stylesheet
+
+means the linked file contains CSS styling instructions.
+
+
+href="style.css"
+
+href identifies where the resource is located.
+
+In this example, the browser should look for:
+
+style.css
+
+
+THE WHOLE INSTRUCTION MEANS:
+
+<link rel="stylesheet" href="style.css">
+
+"Connect this HTML page to the CSS stylesheet located at style.css."
+
+
+WHY THIS CONNECTION MATTERS
+
+Suppose my HTML page contains:
+
+<h1>EL Quiet Rebuild</h1>
+
+The HTML creates the heading.
+
+The CSS file may contain instructions controlling how that heading looks.
+
+The <link> element allows the HTML page to use those CSS instructions.
+
+
+WHAT IF THE STYLESHEET LINK IS WRONG?
+
+The HTML content may still appear in the browser, but the intended EL design may be missing or incorrect.
+
+For example, I might see:
+
+Wrong fonts
+
+Missing spacing
+
+Missing layout
+
+Missing colours
+
+Unstyled links
+
+A page that looks much more basic than expected
+
+
+This gives me a troubleshooting clue.
+
+If most or all of a page suddenly appears unstyled, I should consider whether the stylesheet is being loaded correctly before changing individual CSS rules.
+
+
+FILE PATHS MATTER
+
+Not every EL HTML file is located in the same folder.
+
+This means the path to the stylesheet may sometimes look different depending on where the HTML file lives.
+
+For example, a page in the main project folder may use a path such as:
+
+href="style.css"
+
+A page inside another folder may need a different path to reach the same stylesheet.
+
+I should not change a file path simply because another page uses a different one.
+
+I need to understand where the current HTML file is located and where the resource it needs is located.
+
+
+<link> VS <a>
+
+This distinction is important because both can involve href.
+
+
+<a href="...">
+
+creates a clickable link for the visitor.
+
+
+<link href="...">
+
+connects the HTML document to a resource used by the page.
+
+
+WHERE I USUALLY SEE <link>
+
+<link> is normally placed inside:
+
+<head>
+
+because it describes a resource or relationship associated with the webpage rather than creating the main visible content inside <body>.
+
+
+DOES <link> NEED </link>?
+
+Unlike elements such as:
+
+<p>...</p>
+
+<a>...</a>
+
+<section>...</section>
+
+the <link> element does not wrap content between an opening and closing tag.
+
+I will normally see it written as a single element:
+
+<link rel="stylesheet" href="style.css">
+
+
+A SIMPLE WAY TO REMEMBER IT
+
+<link> = CONNECT THE PAGE TO A RESOURCE
+
+rel = WHAT IS THE RELATIONSHIP?
+
+href = WHERE IS THE RESOURCE?
+
+
+OWNER PRINCIPLE
+
+If an EL page has its content but suddenly seems to have lost much of its design, I should not immediately assume that all of the CSS is broken.
+
+I should also ask:
+
+"Is this HTML page still connected to the correct stylesheet?"
+
+UNDERSTANDING FILE PATHS — HOW THE BROWSER FINDS FILES
+
+WHAT IS A FILE PATH?
+
+A file path tells the browser where a file or resource is located.
+
+I can think of it as directions from one location in my website project to another.
+
+Examples I may see in EL include:
+
+style.css
+
+check-in.html
+
+reading-room/book-picks.html
+
+../style.css
+
+
+WHY FILE PATHS MATTER
+
+My EL website contains files inside different folders.
+
+For example, the project includes files such as:
+
+index.html
+
+check-in.html
+
+style.css
+
+and a folder called:
+
+reading-room
+
+Inside the reading-room folder are other HTML pages.
+
+Because these files are not all in the same location, the browser needs directions to find the correct file.
+
+
+--------------------------------------------------
+
+
+SAME FOLDER
+
+Suppose I have:
+
+index.html
+
+style.css
+
+and both files are in the same folder.
+
+Inside index.html I may see:
+
+href="style.css"
+
+This means:
+
+"Look in the current folder for a file called style.css."
+
+
+A SIMPLE WAY TO THINK ABOUT IT:
+
+style.css
+
+= FIND style.css HERE
+
+
+--------------------------------------------------
+
+
+GOING INTO A FOLDER
+
+Suppose index.html needs to link to:
+
+book-picks.html
+
+but book-picks.html is inside the:
+
+reading-room
+
+folder.
+
+The path may look like:
+
+reading-room/book-picks.html
+
+
+I can read this from left to right:
+
+reading-room/
+
+= go into the reading-room folder
+
+
+book-picks.html
+
+= find this file inside that folder
+
+
+So:
+
+reading-room/book-picks.html
+
+means:
+
+"Go into reading-room and find book-picks.html."
+
+
+--------------------------------------------------
+
+
+GOING BACK OUT OF A FOLDER
+
+Now imagine I am already inside:
+
+reading-room/book-picks.html
+
+but the CSS file I need is outside the reading-room folder.
+
+I may see:
+
+../style.css
+
+
+WHAT DOES ../ MEAN?
+
+../ means:
+
+GO UP ONE FOLDER LEVEL
+
+
+So I can read:
+
+../style.css
+
+as:
+
+"Go up one folder, then find style.css."
+
+
+A SIMPLE VISUAL EXAMPLE:
+
+EL PROJECT
+│
+├── index.html
+├── check-in.html
+├── style.css
+│
+└── reading-room
+    │
+    ├── book-picks.html
+    └── reflection-room.html
+
+
+FROM index.html TO book-picks.html:
+
+reading-room/book-picks.html
+
+
+FROM book-picks.html TO style.css:
+
+../style.css
+
+
+WHY THE SAME RESOURCE CAN HAVE DIFFERENT PATHS
+
+A file path depends on where I am starting from.
+
+This is important.
+
+The question is not only:
+
+"Where is style.css?"
+
+I also need to ask:
+
+"Where is the HTML file that is trying to reach style.css?"
+
+
+For example:
+
+index.html
+
+and
+
+reading-room/book-picks.html
+
+may both use the same style.css file.
+
+But because they start from different folders, their directions to that file may be different.
+
+
+FILE PATH TROUBLESHOOTING
+
+If a page, stylesheet, image, PDF or internal link cannot be found, I can ask:
+
+1. What file am I currently in?
+
+2. What file am I trying to reach?
+
+3. Are they in the same folder?
+
+4. Do I need to go into another folder?
+
+5. Do I need to go up a folder using ../?
+
+6. Is the filename spelled exactly as it exists?
+
+
+DO NOT GUESS A PATH
+
+Instead of copying a path from another EL page and assuming it will work, I should understand the starting location.
+
+A path that is correct for one page may be wrong for another page because the pages live in different folders.
+
+
+A SIMPLE WAY TO REMEMBER IT
+
+style.css
+
+= look HERE
+
+
+reading-room/book-picks.html
+
+= go INTO reading-room, then find the file
+
+
+../style.css
+
+= go UP one folder, then find style.css
+
+
+OWNER PRINCIPLE
+
+A file path is a set of directions.
+
+When a path does not work, I should not randomly add or remove ../
+
+I should first ask:
+
+"Where am I starting, and where am I trying to go?"
+
+Then I can work out the route.
+
+THE <title> ELEMENT — THE PAGE TITLE
+
+WHAT IT IS:
+
+The <title> element defines the title of an HTML webpage.
+
+It is placed inside the:
+
+<head>
+
+of the HTML document.
+
+
+EXAMPLE:
+
+<head>
+
+  <title>EL Quiet Rebuild</title>
+
+</head>
+
+
+WHAT THE PARTS MEAN:
+
+<title>
+
+The page title begins.
+
+
+EL Quiet Rebuild
+
+This is the title being assigned to the webpage.
+
+
+</title>
+
+The title ends.
+
+
+WHERE THE TITLE CAN APPEAR
+
+The <title> is not normally displayed as part of the visible content inside the webpage itself.
+
+It can appear in places such as:
+
+The browser tab
+
+Browser bookmarks
+
+Search engine results
+
+
+<title> VS <h1>
+
+These are different.
+
+<title>
+
+describes the title of the HTML document and belongs inside <head>.
+
+
+<h1>
+
+is the main heading of the visible page content and belongs inside <body>.
+
+
+For example:
+
+<title>Quiet Rebuild Check-In | EL Quiet Rebuild</title>
+
+could be the document title.
+
+While:
+
+<h1>The Quiet Rebuild Check-In</h1>
+
+could be the main visible heading.
+
+
+THEY CAN BE SIMILAR WITHOUT BEING IDENTICAL
+
+The <title> and <h1> often describe the same page, but they have different jobs.
+
+I should not assume that changing one automatically changes the other.
+
+
+WHY THIS MATTERS FOR EL
+
+Each important EL page should have a title that helps identify what the page is.
+
+If I see the wrong wording in the browser tab, I should investigate:
+
+<title>
+
+rather than automatically changing the visible <h1>.
+
+
+A SIMPLE WAY TO REMEMBER IT
+
+<title> = TITLE OF THE HTML DOCUMENT
+
+<h1> = MAIN VISIBLE HEADING OF THE PAGE
+
+
+OWNER PRINCIPLE
+
+When I see text associated with a webpage, I should ask where that text is actually appearing.
+
+Browser tab problem?
+
+Investigate <title>.
+
+Main page heading problem?
+
+Investigate <h1>.
+
+Similar words can belong to different parts of the website and perform different jobs.
+
+THE <meta> ELEMENT — INFORMATION ABOUT THE WEBPAGE
+
+WHAT IT IS:
+
+The <meta> element provides metadata about an HTML webpage.
+
+"Meta" can be understood as information ABOUT the page rather than the main content displayed on the page.
+
+<meta> elements are normally placed inside:
+
+<head>
+
+
+WHAT IS METADATA?
+
+Metadata is information that describes or gives instructions about other information.
+
+For a webpage, metadata can help provide information to:
+
+Browsers
+
+Search engines
+
+Social platforms
+
+Other services that interact with the webpage
+
+
+A SIMPLE EXAMPLE:
+
+<meta
+  name="description"
+  content="EL Quiet Rebuild is a calm space for learning, thinking, rebuilding and becoming."
+>
+
+
+BREAKING IT APART:
+
+<meta
+
+This begins the meta element.
+
+
+name="description"
+
+The name attribute identifies what kind of metadata this is.
+
+In this example, it is:
+
+description
+
+
+content="..."
+
+The content attribute contains the actual information being provided.
+
+
+So I can read:
+
+name="description"
+
+as:
+
+"What kind of information is this?"
+
+
+And:
+
+content="..."
+
+as:
+
+"What is the information?"
+
+
+AN EL EXAMPLE I HAVE ENCOUNTERED:
+
+<meta
+  name="twitter:title"
+  content="EL Quiet Rebuild | Learn, Think, Rebuild, Apply, & Become"
+/>
+
+
+HOW I CAN READ THIS:
+
+<meta>
+
+This is metadata about the page.
+
+
+name="twitter:title"
+
+This identifies the type or purpose of this particular metadata.
+
+
+content="EL Quiet Rebuild | Learn, Think, Rebuild, Apply, & Become"
+
+This is the value being provided for that metadata.
+
+
+IMPORTANT: <meta> IS NOT NORMAL PAGE TEXT
+
+If I change the content inside certain metadata, that does not necessarily change the visible heading or paragraph on the webpage.
+
+For example:
+
+<meta name="twitter:title" content="...">
+
+and:
+
+<h1>...</h1>
+
+perform different jobs.
+
+The <meta> information belongs to the page's metadata.
+
+The <h1> is visible page content.
+
+
+<meta> DOES NOT USE A CLOSING TAG
+
+Like <link>, the <meta> element does not wrap visible content between an opening and closing tag.
+
+I may see:
+
+<meta name="description" content="...">
+
+rather than:
+
+<meta>...</meta>
+
+
+WHY THIS MATTERS FOR TROUBLESHOOTING
+
+Suppose:
+
+The visible EL page heading is correct
+
+but
+
+information associated with sharing or describing the page is wrong.
+
+I should not automatically change the <h1>.
+
+I may need to investigate the relevant metadata inside <head>.
+
+
+A SIMPLE WAY TO REMEMBER IT
+
+<meta> = INFORMATION ABOUT THE PAGE
+
+name = WHAT KIND OF METADATA IS THIS?
+
+content = WHAT INFORMATION AM I PROVIDING?
+
+
+OWNER PRINCIPLE
+
+Similar wording can exist in different parts of an HTML document for different purposes.
+
+Before changing text, I should ask:
+
+"Where is this text appearing, and what element is responsible for it?"
+
+That helps me change the correct information instead of editing something that only looks similar.
+
+THE <script> ELEMENT — JAVASCRIPT AND EXTERNAL SCRIPTS
+
+WHAT IT IS:
+
+The <script> element is used to include or connect JavaScript with an HTML webpage.
+
+JavaScript can provide behaviour, functionality or services that run when a webpage is used or loaded.
+
+
+A SIMPLE EXAMPLE:
+
+<script src="script.js"></script>
+
+
+BREAKING IT APART:
+
+<script
+
+This begins the script element.
+
+
+src="script.js"
+
+"src" means source.
+
+It tells the browser where the JavaScript file comes from.
+
+In this example, the source is:
+
+script.js
+
+
+></script>
+
+This completes the script element.
+
+
+A SIMPLE WAY TO READ IT:
+
+<script src="script.js"></script>
+
+means:
+
+"Load and use the JavaScript from script.js."
+
+
+WHAT DOES src MEAN?
+
+src = SOURCE
+
+It tells the browser where a resource comes from.
+
+This is different from:
+
+href
+
+which I have already encountered with links and stylesheets.
+
+
+JAVASCRIPT CAN ALSO APPEAR INSIDE <script>
+
+Sometimes JavaScript is written directly between the script tags.
+
+For example:
+
+<script>
+  // JavaScript instructions can appear here
+</script>
+
+This is called inline or embedded JavaScript.
+
+Another approach is to keep the JavaScript in a separate .js file and connect to it using src.
+
+
+WHERE I HAVE ENCOUNTERED <script> IN EL
+
+EL Quiet Rebuild uses a Cloudflare Web Analytics script.
+
+That script allows Cloudflare's analytics service to receive information needed to provide website traffic statistics.
+
+This is an example of an external service using JavaScript on the website.
+
+
+IMPORTANT SECURITY HABIT
+
+Some scripts contain identifiers, tokens or other values used by external services.
+
+I should not casually:
+
+Copy them into public documentation
+
+Share private credentials
+
+Replace values I do not understand
+
+Delete scripts simply because I do not recognize them
+
+
+Before changing an unfamiliar script, I should ask:
+
+What service does this belong to?
+
+What does the script appear to do?
+
+Does EL currently depend on it?
+
+What could stop working if I remove or change it?
+
+
+<script> VS <link> VS <a>
+
+These can all connect to something, but their purposes are different.
+
+
+<a href="...">
+
+= creates a link the visitor can click
+
+
+<link rel="stylesheet" href="...">
+
+= connects the webpage to a resource such as a CSS stylesheet
+
+
+<script src="...">
+
+= loads or connects JavaScript used by the webpage
+
+
+WHERE <script> CAN APPEAR
+
+Scripts can appear in different locations in an HTML document depending on how they need to load and run.
+
+I may see scripts inside:
+
+<head>
+
+or
+
+<body>
+
+Some scripts are intentionally placed near the end of <body>.
+
+I should not move a script simply because I think it looks like it is in the wrong place.
+
+Its location may be intentional.
+
+
+A USEFUL TROUBLESHOOTING DISTINCTION
+
+If EL's written content is wrong:
+
+I would not investigate an analytics script first.
+
+
+If EL's styling is wrong:
+
+I would normally investigate the CSS connection or CSS before an analytics script.
+
+
+If Cloudflare stops recording website analytics:
+
+The analytics script and its installation become relevant things to investigate.
+
+
+A SIMPLE WAY TO REMEMBER IT
+
+<script> = JAVASCRIPT / SCRIPT
+
+src = WHERE DOES THE SCRIPT COME FROM?
+
+
+OWNER PRINCIPLE
+
+External code on my website should have a known purpose.
+
+I do not need to understand every line of an external script.
+
+But as the owner, I should know:
+
+Why it is there
+
+Which service it belongs to
+
+What EL uses it for
+
+And why I should not casually change or remove it.
+
+
+THE BASIC HTML DOCUMENT STRUCTURE — THE SKELETON OF A WEBPAGE
+
+When I open an EL HTML page, I may see a structure similar to this:
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>EL Quiet Rebuild</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main>
+    <h1>EL Quiet Rebuild</h1>
+    <p>Less display. More depth.</p>
+  </main>
+
+</body>
+
+</html>
+
+
+I do not need to see this as one complicated block.
+
+I can read it piece by piece.
+
+
+--------------------------------------------------
+
+
+<!DOCTYPE html>
+
+WHAT IT DOES:
+
+This tells the browser that the document should be interpreted as modern HTML.
+
+It appears at the beginning of the HTML document.
+
+A simple way to remember it:
+
+<!DOCTYPE html>
+
+= THIS IS AN HTML DOCUMENT
+
+
+--------------------------------------------------
+
+
+<html>
+
+WHAT IT IS:
+
+The <html> element is the root element of the HTML document.
+
+The rest of the HTML structure is contained inside it.
+
+At the bottom of the document I will normally see:
+
+</html>
+
+which closes the HTML document.
+
+
+WHAT DOES lang="en" MEAN?
+
+I may see:
+
+<html lang="en">
+
+lang means language.
+
+"en" means English.
+
+This tells browsers and other technologies that the primary language of the page is English.
+
+
+--------------------------------------------------
+
+
+<head>
+
+This contains information and instructions ABOUT the webpage.
+
+I have already learned that this can include things such as:
+
+<meta>
+
+<title>
+
+<link>
+
+
+--------------------------------------------------
+
+
+<body>
+
+This contains the page content and elements that form what the visitor experiences and interacts with.
+
+Inside it I may find elements I already recognize, such as:
+
+<nav>
+
+<main>
+
+<section>
+
+<div>
+
+<h1>
+
+<p>
+
+<a>
+
+<ul>
+
+<li>
+
+<script>
+
+
+--------------------------------------------------
+
+
+HOW THE PIECES FIT TOGETHER
+
+I can think about the structure like this:
+
+HTML DOCUMENT
+
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+        Information ABOUT the page
+
+    </head>
+
+
+    <body>
+
+        Content and elements OF the page
+
+    </body>
+
+</html>
+
+
+WHY INDENTATION HELPS ME READ CODE
+
+Notice that elements inside other elements are often moved slightly to the right.
+
+Example:
+
+<main>
+  <section>
+    <p>Less display. More depth.</p>
+  </section>
+</main>
+
+This indentation helps me visually understand which elements are inside other elements.
+
+The paragraph is inside the section.
+
+The section is inside main.
+
+This relationship is sometimes described as nesting.
+
+
+WHAT IS NESTING?
+
+Nesting means placing one HTML element inside another.
+
+Example:
+
+<section>
+  <p>...</p>
+</section>
+
+The <p> element is nested inside the <section> element.
+
+
+OPENING AND CLOSING ELEMENTS MATTER
+
+Many HTML elements have an opening tag and a corresponding closing tag.
+
+Example:
+
+<body>
+
+...
+
+</body>
+
+
+<section>
+
+...
+
+</section>
+
+
+<p>
+
+...
+
+</p>
+
+
+If the structure becomes incorrect because something is missing or closed in the wrong place, the browser may interpret the page differently from what I intended.
+
+This is why I should be careful when deleting or moving opening and closing tags.
+
+
+A SIMPLE WAY TO REMEMBER THE STRUCTURE
+
+<!DOCTYPE html>
+
+= THIS IS HTML
+
+
+<html>
+
+= THE HTML DOCUMENT
+
+
+<head>
+
+= INFORMATION ABOUT THE PAGE
+
+
+<body>
+
+= THE PAGE CONTENT AND ELEMENTS
+
+
+</html>
+
+= END OF THE HTML DOCUMENT
+
+
+OWNER PRINCIPLE
+
+When I open a large HTML file, I do not need to understand hundreds of lines at once.
+
+I can first identify the larger structure.
+
+Then I can move from:
+
+Document
+↓
+Head or Body
+↓
+Main area
+↓
+Section
+↓
+Individual element
+
+Breaking code into levels makes it easier to read, understand and troubleshoot.
