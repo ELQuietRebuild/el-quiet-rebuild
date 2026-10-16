@@ -1898,3 +1898,135 @@ footer p {
   font-style: italic;
   opacity: 0.9;
 }
+
+/* =========================
+   ABOUT PAGE
+========================= */
+
+.about-hero {
+  max-width: 1100px;
+  margin: 40px auto 70px;
+  padding: 80px 60px;
+  text-align: center;
+  background-color: var(--espresso);
+  color: var(--ivory);
+  border-radius: 24px;
+}
+
+.about-eyebrow {
+  margin-bottom: 18px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.about-hero h1 {
+  max-width: 750px;
+  margin: 0 auto 28px;
+  font-size: 40px;
+  line-height: 1.15;
+}
+
+.about-hero-intro {
+  max-width: 760px;
+  margin: 0 auto 20px;
+  font-size: 19px;
+  line-height: 1.8;
+}
+
+.about-hero > p:not(.about-eyebrow):not(.about-hero-intro) {
+  max-width: 760px;
+  margin: 0 auto 20px;
+  line-height: 1.8;
+}
+
+.about-hero-lines {
+  margin-top: 35px;
+}
+
+.about-hero-lines p {
+  margin: 7px 0;
+  font-weight: 600;
+}
+
+.about-story {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 75px 40px;
+}
+
+.about-section-heading {
+  margin-bottom: 35px;
+}
+
+.about-section-heading h2 {
+  margin-bottom: 12px;
+  font-size: 34px;
+  line-height: 1.2;
+  color: var(--espresso);
+}
+
+.about-section-heading h3 {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.about-story-text {
+  font-size: 17px;
+  line-height: 1.85;
+}
+
+.about-story-text p {
+  margin: 0 0 22px;
+}
+
+.about-quote {
+  margin: 38px 0;
+  padding: 24px 30px;
+  border-left: 4px solid var(--terracotta);
+  font-size: 23px;
+  line-height: 1.5;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Make About hero text clearly visible */
+.about-hero p {
+  color: var(--ivory);
+}
+
+.about-hero .about-eyebrow {
+  color: var(--gold);
+}
+
+.about-hero-lines p {
+  color: var(--ivory);
+}
+
+/* =========================
+   ABOUT — THE AWAKENING
+========================= */
+
+.about-awakening {
+  max-width: 820px;
+  margin: 0 auto;
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+.about-awakening .about-section-heading h2 {
+  margin-bottom: 14px;
+}
+
+.about-awakening .about-quote {
+  margin: 50px 0;
+  padding: 35px 30px;
+  text-align: center;
+  border-left: none;
+  border-top: 1px solid var(--terracotta);
+  border-bottom: 1px solid var(--terracotta);
+  font-size: 30px;
+  line-height: 1.4;
+}
