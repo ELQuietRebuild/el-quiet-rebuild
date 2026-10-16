@@ -2030,3 +2030,32 @@ footer p {
   font-size: 30px;
   line-height: 1.4;
 }
+
+/* Made to Stick — Amazon Affiliate Link */
+
+.book-amazon-link {
+  margin: 25px 0;
+}
+
+.book-amazon-link a {
+  display: inline-block;
+  background-color: #b89562;
+  color: #241914;
+  padding: 12px 22px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.book-amazon-link a:hover {
+  background-color: #d2b48c;
+  color: #241914;
+}
+
+.book-amazon-link .affiliate-disclosure {
+  color: #e8ded2;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  margin-top: 12px;
+}
