@@ -2059,3 +2059,31 @@ footer p {
   line-height: 1.6;
   margin-top: 12px;
 }
+
+/* Affiliate disclosure on light backgrounds */
+
+.book-picks-page .affiliate-disclosure {
+  color: #4a342b;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+/* Amazon links on Monthly Book Picks */
+
+.book-picks-page .book-amazon-link a {
+  display: inline-block;
+  background: transparent;
+  color: #5b4032;
+  padding: 0;
+  border-radius: 0;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: #b89562;
+  text-underline-offset: 5px;
+}
+
+.book-picks-page .book-amazon-link a:hover {
+  background: transparent;
+  color: #a65a3c;
+}
